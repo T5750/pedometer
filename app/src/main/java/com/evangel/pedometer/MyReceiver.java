@@ -1,5 +1,7 @@
 package com.evangel.pedometer;
 
+import com.evangel.pedometer.activity.MainActivity;
+import com.evangel.pedometer.app.TSApplication;
 import com.evangel.pedometerlib.BaseClickBroadcast;
 
 import android.content.Context;

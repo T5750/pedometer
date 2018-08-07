@@ -1,4 +1,4 @@
-package com.evangel.pedometer;
+package com.evangel.pedometer.app;
 
 import android.app.Activity;
 import android.app.Application;

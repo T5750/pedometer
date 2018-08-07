@@ -1,6 +1,12 @@
-package com.evangel.pedometer;
+package com.evangel.pedometer.activity;
 
-import com.evangel.pedometer.activity.HistoryActivity;
+import static com.evangel.pedometerlib.SportStepJsonUtils.getCalorieByStep;
+import static com.evangel.pedometerlib.SportStepJsonUtils.getDistanceByStep;
+
+import com.evangel.pedometer.R;
+import com.evangel.pedometer.app.TSApplication;
+import com.evangel.pedometer.step.utils.Globals;
+import com.evangel.pedometer.step.utils.SharedPreferencesUtils;
 import com.evangel.pedometer.view.StepArcView;
 import com.evangel.pedometerlib.ISportStepInterface;
 import com.evangel.pedometerlib.TodayStepManager;
@@ -34,6 +40,7 @@ public class MainActivity extends AppCompatActivity
 	private TextView tv_data;
 	private StepArcView cc;
 	private TextView tv_set;
+	private SharedPreferencesUtils sp;
 
 	private void assignViews() {
 		tv_data = (TextView) findViewById(R.id.tv_data);
@@ -46,12 +53,22 @@ public class MainActivity extends AppCompatActivity
 		tv_data.setOnClickListener(this);
 	}
 
+	private void initData() {
+		sp = new SharedPreferencesUtils(this);
+		// 获取用户设置的计划锻炼步数，没有设置过的话默认
+		String planWalk_QTY = (String) sp.getParam(Globals.PLAN_WALK_KEY,
+				Globals.PLAN_WALK_QTY);
+		// 设置当前步数为0
+		cc.setCurrentCount(Integer.parseInt(planWalk_QTY), 0);
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		assignViews();
 		addListener();
+		initData();
 		tsApplication = (TSApplication) getApplication();
 		// 初始化计步模块
 		TodayStepManager.init(getApplication());
@@ -112,12 +129,20 @@ public class MainActivity extends AppCompatActivity
 	private void updateStepCount() {
 		Log.e(TAG, "updateStepCount : " + mStepSum);
 		TextView stepTextView = (TextView) findViewById(R.id.stepTextView);
-		stepTextView.setText(mStepSum + "步");
-		cc.setCurrentCount(5000, mStepSum);
+		String km = getDistanceByStep(mStepSum);
+		String calorie = getCalorieByStep(mStepSum);
+		stepTextView.setText(calorie + " 千卡  " + km + " 公里");
+		String planWalk_QTY = (String) sp.getParam(Globals.PLAN_WALK_KEY,
+				Globals.PLAN_WALK_QTY);
+		cc.setCurrentCount(Integer.parseInt(planWalk_QTY), mStepSum);
 	}
 
 	public void onClick(View view) {
 		switch (view.getId()) {
+		case R.id.tv_set: {
+			startActivity(new Intent(this, SetPlanActivity.class));
+			break;
+		}
 		case R.id.tv_data: {
 			Intent intent = new Intent(this, HistoryActivity.class);
 			try {

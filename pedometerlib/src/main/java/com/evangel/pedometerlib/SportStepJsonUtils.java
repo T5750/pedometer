@@ -16,7 +16,7 @@ public class SportStepJsonUtils {
 	public static final String CALORIE = "kaluli";
 	public static final String TODAY = TodayStepDBHelper.TODAY;
 
-	static JSONArray getSportStepJsonArray(
+	public static JSONArray getSportStepJsonArray(
 			List<TodayStepData> todayStepDataArrayList) {
 		JSONArray jsonArray = new JSONArray();
 		if (null == todayStepDataArrayList
@@ -43,12 +43,12 @@ public class SportStepJsonUtils {
 	}
 
 	// 公里计算公式
-	static String getDistanceByStep(long steps) {
+	public static String getDistanceByStep(long steps) {
 		return String.format("%.2f", steps * 0.6f / 1000);
 	}
 
 	// 千卡路里计算公式
-	static String getCalorieByStep(long steps) {
+	public static String getCalorieByStep(long steps) {
 		return String.format("%.1f", steps * 0.6f * 60 * 1.036f / 1000);
 	}
 }

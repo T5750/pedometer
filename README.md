@@ -6,7 +6,9 @@
 ## Quick Start Guide
 
 ## Tips
-- Commits on Feb 24, 2018
+- [TodayStepCounter](https://github.com/jiahongfei/TodayStepCounter) Commits on Feb 24, 2018
+- [DylanStepCount](https://github.com/linglongxin24/DylanStepCount) Commits on Nov 23, 2017
 
 ## Links
 - [TodayStepCounter](https://github.com/jiahongfei/TodayStepCounter)
+- [DylanStepCount](https://github.com/linglongxin24/DylanStepCount)
