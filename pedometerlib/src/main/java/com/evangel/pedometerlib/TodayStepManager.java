@@ -10,7 +10,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 
 /**
- * 计步SDK初始化方法
+ * 正常启动，计步SDK初始化方法
  */
 public class TodayStepManager {
 	private static final String TAG = "TodayStepManager";

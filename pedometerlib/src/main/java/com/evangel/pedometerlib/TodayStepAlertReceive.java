@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 /**
- * 0点启动app处理步数
+ * 零点分隔广播，0点启动app处理步数
  */
 public class TodayStepAlertReceive extends BroadcastReceiver {
 	public static final String ACTION_STEP_ALERT = "action_step_alert";

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 /**
+ * 关机监听
  */
 public class TodayStepShutdownReceiver extends BroadcastReceiver {
 	private static final String TAG = "TodayStepShutdownReceiver";

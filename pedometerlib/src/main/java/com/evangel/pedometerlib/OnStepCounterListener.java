@@ -1,6 +1,7 @@
 package com.evangel.pedometerlib;
 
 /**
+ * 返回步数监听
  */
 interface OnStepCounterListener {
 	/**

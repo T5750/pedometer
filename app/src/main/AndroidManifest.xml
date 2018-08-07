@@ -18,6 +18,9 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
+		<activity
+			android:name=".activity.HistoryActivity"
+			android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
 		<receiver
 			android:name=".MyReceiver"
