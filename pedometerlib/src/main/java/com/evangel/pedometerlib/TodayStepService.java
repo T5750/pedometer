@@ -1,13 +1,12 @@
 package com.evangel.pedometerlib;
 
-import static com.evangel.pedometerlib.SportStepJsonUtils.getCalorieByStep;
-import static com.evangel.pedometerlib.SportStepJsonUtils.getDistanceByStep;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import org.json.JSONArray;
+
+import com.evangel.pedometerlib.utils.LibGlobals;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -159,9 +158,7 @@ public class TodayStepService extends Service implements Handler.Callback {
 		builder.setTicker(getString(R.string.app_name));
 		builder.setContentTitle(getString(R.string.title_notification_bar,
 				String.valueOf(currentStep)));
-		String km = getDistanceByStep(currentStep);
-		String calorie = getCalorieByStep(currentStep);
-		builder.setContentText(calorie + " 千卡  " + km + " 公里");
+		builder.setContentText(LibGlobals.getKmCalorieByStep(currentStep));
 		// 设置不可清除
 		builder.setOngoing(true);
 		notification = builder.build();
@@ -320,9 +317,7 @@ public class TodayStepService extends Service implements Handler.Callback {
 		}
 		builder.setContentTitle(getString(R.string.title_notification_bar,
 				String.valueOf(stepCount)));
-		String km = getDistanceByStep(stepCount);
-		String calorie = getCalorieByStep(stepCount);
-		builder.setContentText(calorie + " 千卡  " + km + " 公里");
+		builder.setContentText(LibGlobals.getKmCalorieByStep(stepCount));
 		notification = builder.build();
 		nm.notify(R.string.app_name, notification);
 	}

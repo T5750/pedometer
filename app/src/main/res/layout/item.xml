@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:background="#FFFFFF"
+	android:background="@color/white"
 	android:orientation="horizontal"
 	android:padding="10dp">
 
@@ -13,8 +13,8 @@
 		android:layout_marginLeft="50dp"
 		android:layout_weight="1"
 		android:text="TextView"
-		android:textColor="#000000"
-		android:textSize="18sp" />
+		android:textColor="@color/black_two"
+		android:textSize="16sp" />
 
 	<TextView
 		android:id="@+id/tv_step"
@@ -22,6 +22,6 @@
 		android:layout_height="wrap_content"
 		android:layout_marginRight="50dp"
 		android:text="TextView"
-		android:textColor="#000000"
-		android:textSize="18sp" />
+		android:textColor="@color/black_two"
+		android:textSize="16sp" />
 </LinearLayout>

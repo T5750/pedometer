@@ -1,8 +1,5 @@
 package com.evangel.pedometer.activity;
 
-import static com.evangel.pedometerlib.SportStepJsonUtils.getCalorieByStep;
-import static com.evangel.pedometerlib.SportStepJsonUtils.getDistanceByStep;
-
 import com.evangel.pedometer.R;
 import com.evangel.pedometer.app.TSApplication;
 import com.evangel.pedometer.step.utils.Globals;
@@ -11,6 +8,7 @@ import com.evangel.pedometer.view.StepArcView;
 import com.evangel.pedometerlib.ISportStepInterface;
 import com.evangel.pedometerlib.TodayStepManager;
 import com.evangel.pedometerlib.TodayStepService;
+import com.evangel.pedometerlib.utils.LibGlobals;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -41,16 +39,19 @@ public class MainActivity extends AppCompatActivity
 	private StepArcView cc;
 	private TextView tv_set;
 	private SharedPreferencesUtils sp;
+	private TextView stepArrayView;
 
 	private void assignViews() {
 		tv_data = (TextView) findViewById(R.id.tv_data);
 		cc = (StepArcView) findViewById(R.id.cc);
 		tv_set = (TextView) findViewById(R.id.tv_set);
+		stepArrayView = (TextView) findViewById(R.id.stepArrayView);
 	}
 
 	private void addListener() {
 		tv_set.setOnClickListener(this);
 		tv_data.setOnClickListener(this);
+		stepArrayView.setOnClickListener(this);
 	}
 
 	private void initData() {
@@ -129,9 +130,7 @@ public class MainActivity extends AppCompatActivity
 	private void updateStepCount() {
 		Log.e(TAG, "updateStepCount : " + mStepSum);
 		TextView stepTextView = (TextView) findViewById(R.id.stepTextView);
-		String km = getDistanceByStep(mStepSum);
-		String calorie = getCalorieByStep(mStepSum);
-		stepTextView.setText(calorie + " 千卡  " + km + " 公里");
+		stepTextView.setText(LibGlobals.getKmCalorieByStep(mStepSum));
 		String planWalk_QTY = (String) sp.getParam(Globals.PLAN_WALK_KEY,
 				Globals.PLAN_WALK_QTY);
 		cc.setCurrentCount(Integer.parseInt(planWalk_QTY), mStepSum);
@@ -154,7 +153,7 @@ public class MainActivity extends AppCompatActivity
 			startActivity(intent);
 			break;
 		}
-		case R.id.stepArrayButton: {
+		case R.id.stepArrayView: {
 			// 获取所有步数列表
 			if (null != iSportStepInterface) {
 				try {
@@ -167,33 +166,46 @@ public class MainActivity extends AppCompatActivity
 			}
 			break;
 		}
-		case R.id.stepArrayButton1: {
-			// 根据时间来获取步数列表
-			if (null != iSportStepInterface) {
-				try {
-					String stepArray = iSportStepInterface
-							.getTodaySportStepArrayByDate("2018-01-19");
-					mStepArrayTextView.setText(stepArray);
-				} catch (RemoteException e) {
-					e.printStackTrace();
-				}
-			}
-			break;
-		}
-		case R.id.stepArrayButton2: {
-			// 获取多天步数列表
-			if (null != iSportStepInterface) {
-				try {
-					String stepArray = iSportStepInterface
-							.getTodaySportStepArrayByStartDateAndDays(
-									"2018-01-20", 6);
-					mStepArrayTextView.setText(stepArray);
-				} catch (RemoteException e) {
-					e.printStackTrace();
-				}
-			}
-			break;
-		}
+		// case R.id.stepArrayButton: {
+		// // 获取所有步数列表
+		// if (null != iSportStepInterface) {
+		// try {
+		// String stepArray = iSportStepInterface
+		// .getTodaySportStepArray();
+		// mStepArrayTextView.setText(stepArray);
+		// } catch (RemoteException e) {
+		// e.printStackTrace();
+		// }
+		// }
+		// break;
+		// }
+		// case R.id.stepArrayButton1: {
+		// // 根据时间来获取步数列表
+		// if (null != iSportStepInterface) {
+		// try {
+		// String stepArray = iSportStepInterface
+		// .getTodaySportStepArrayByDate("2018-01-19");
+		// mStepArrayTextView.setText(stepArray);
+		// } catch (RemoteException e) {
+		// e.printStackTrace();
+		// }
+		// }
+		// break;
+		// }
+		// case R.id.stepArrayButton2: {
+		// // 获取多天步数列表
+		// if (null != iSportStepInterface) {
+		// try {
+		// String stepArray = iSportStepInterface
+		// .getTodaySportStepArrayByStartDateAndDays(
+		// "2018-01-20", 6);
+		// mStepArrayTextView.setText(stepArray);
+		// } catch (RemoteException e) {
+		// e.printStackTrace();
+		// }
+		// }
+		// break;
+		// }
 		default:
 			break;
 		}
