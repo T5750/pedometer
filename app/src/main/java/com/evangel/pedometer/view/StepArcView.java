@@ -195,6 +195,8 @@ public class StepArcView extends View {
 	 *            所走步数
 	 */
 	public void setCurrentCount(int totalStepNum, int currentCounts) {
+		// currentStep用于超过每日锻炼步数后，显示今日步数
+		int currentStep = currentCounts;
 		/** 如果当前走的步数超过总步数则圆弧还是270度，不能成为园 */
 		if (currentCounts > totalStepNum) {
 			currentCounts = totalStepNum;
@@ -210,7 +212,7 @@ public class StepArcView extends View {
 		float currentAngleLength = scale * angleLength;
 		/** 开始执行动画 */
 		setAnimation(previousAngleLength, currentAngleLength, animationLength);
-		stepNumber = String.valueOf(currentCounts);
+		stepNumber = String.valueOf(currentStep);
 		setTextSize(currentCounts);
 	}
 

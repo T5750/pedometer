@@ -12,3 +12,6 @@
 ## Links
 - [TodayStepCounter](https://github.com/jiahongfei/TodayStepCounter)
 - [DylanStepCount](https://github.com/linglongxin24/DylanStepCount)
+
+## License
+Pedometer is Open Source software released under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.html).
