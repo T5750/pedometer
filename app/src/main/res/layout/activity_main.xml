@@ -52,6 +52,16 @@
 			android:textColor="@color/black_two"
 			android:textSize="16sp" />
 
+		<TextView
+			android:id="@+id/dynamicStepTextView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/cc"
+			android:layout_centerHorizontal="true"
+			android:layout_marginTop="0dp"
+			android:text="Hello World!"
+			android:textColor="@color/black_two"
+			android:textSize="16sp" />
 		<!--<TextView-->
 		<!--android:id="@+id/tv_isSupport"-->
 		<!--android:layout_width="wrap_content"-->
@@ -65,9 +75,9 @@
 			android:id="@+id/stepTextView"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_below="@+id/cc"
+			android:layout_below="@+id/dynamicStepTextView"
 			android:layout_centerHorizontal="true"
-			android:layout_marginTop="0dp"
+			android:layout_marginTop="10dp"
 			android:text="Hello World!"
 			android:textColor="@color/black_two"
 			android:textSize="16sp" />

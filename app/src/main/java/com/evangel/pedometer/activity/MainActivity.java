@@ -3,6 +3,7 @@ package com.evangel.pedometer.activity;
 import com.evangel.pedometer.R;
 import com.evangel.pedometer.app.TSApplication;
 import com.evangel.pedometer.step.utils.Globals;
+import com.evangel.pedometer.step.utils.NumAnim;
 import com.evangel.pedometer.step.utils.SharedPreferencesUtils;
 import com.evangel.pedometer.view.StepArcView;
 import com.evangel.pedometerlib.ISportStepInterface;
@@ -40,12 +41,14 @@ public class MainActivity extends AppCompatActivity
 	private TextView tv_set;
 	private SharedPreferencesUtils sp;
 	private TextView stepArrayView;
+	private TextView dynamicStepTextView;
 
 	private void assignViews() {
 		tv_data = (TextView) findViewById(R.id.tv_data);
 		cc = (StepArcView) findViewById(R.id.cc);
 		tv_set = (TextView) findViewById(R.id.tv_set);
 		stepArrayView = (TextView) findViewById(R.id.stepArrayView);
+		dynamicStepTextView = (TextView) findViewById(R.id.dynamicStepTextView);
 	}
 
 	private void addListener() {
@@ -56,11 +59,8 @@ public class MainActivity extends AppCompatActivity
 
 	private void initData() {
 		sp = new SharedPreferencesUtils(this);
-		// 获取用户设置的计划锻炼步数，没有设置过的话默认
-		String planWalk_QTY = (String) sp.getParam(Globals.PLAN_WALK_KEY,
-				Globals.PLAN_WALK_QTY);
 		// 设置当前步数为0
-		cc.setCurrentCount(Integer.parseInt(planWalk_QTY), 0);
+		cc.setCurrentCount(Globals.getPlanWalk(sp), 0);
 	}
 
 	@Override
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity
 						.asInterface(service);
 				try {
 					mStepSum = iSportStepInterface.getCurrentTimeSportStep();
-					updateStepCount();
+					updateStepCount(true);
 				} catch (RemoteException e) {
 					e.printStackTrace();
 				}
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity
 					}
 					if (mStepSum != step) {
 						mStepSum = step;
-						updateStepCount();
+						updateStepCount(false);
 					}
 				}
 				mDelayHandler.sendEmptyMessageDelayed(REFRESH_STEP_WHAT,
@@ -127,13 +127,19 @@ public class MainActivity extends AppCompatActivity
 		}
 	}
 
-	private void updateStepCount() {
+	/**
+	 *
+	 * @param flagStepNumAnim
+	 *            是否开启步数累加效果
+	 */
+	private void updateStepCount(boolean flagStepNumAnim) {
 		Log.e(TAG, "updateStepCount : " + mStepSum);
 		TextView stepTextView = (TextView) findViewById(R.id.stepTextView);
 		stepTextView.setText(LibGlobals.getKmCalorieByStep(mStepSum));
-		String planWalk_QTY = (String) sp.getParam(Globals.PLAN_WALK_KEY,
-				Globals.PLAN_WALK_QTY);
-		cc.setCurrentCount(Integer.parseInt(planWalk_QTY), mStepSum);
+		if (flagStepNumAnim) {
+			NumAnim.startAnim(dynamicStepTextView, mStepSum);
+		}
+		cc.setCurrentCount(Globals.getPlanWalk(sp), mStepSum);
 	}
 
 	public void onClick(View view) {
@@ -208,6 +214,15 @@ public class MainActivity extends AppCompatActivity
 		// }
 		default:
 			break;
+		}
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume(); // Always call the superclass method first
+		if (mStepSum > 0) {
+			NumAnim.startAnim(dynamicStepTextView, mStepSum);
+			cc.setCurrentCount(Globals.getPlanWalk(sp), mStepSum);
 		}
 	}
 }

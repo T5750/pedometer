@@ -43,7 +43,7 @@ public class StepArcView extends View {
 	/**
 	 * 动画时长
 	 */
-	private int animationLength = 1000;
+	private int animationLength = 500;
 
 	public StepArcView(Context context) {
 		super(context);
@@ -65,13 +65,13 @@ public class StepArcView extends View {
 		/** 指定圆弧的外轮廓矩形区域 */
 		RectF rectF = new RectF(0 + borderWidth, borderWidth,
 				2 * centerX - borderWidth, 2 * centerX - borderWidth);
-		/** 【第一步】绘制整体的黄色圆弧 */
+		/** 【第一步】绘制整体的灰色圆弧 */
 		drawArcYellow(canvas, rectF);
-		/** 【第二步】绘制当前进度的红色圆弧 */
+		/** 【第二步】绘制当前进度的黄色圆弧 */
 		drawArcRed(canvas, rectF);
-		/** 【第三步】绘制当前进度的红色数字 */
+		/** 【第三步】绘制当前进度的黑色数字 */
 		drawTextNumber(canvas, centerX);
-		/** 【第四步】绘制"步数"的红色数字 */
+		/** 【第四步】绘制"步数"的灰色数字 */
 		drawTextStepString(canvas, centerX);
 	}
 
@@ -85,7 +85,7 @@ public class StepArcView extends View {
 	 */
 	private void drawArcYellow(Canvas canvas, RectF rectF) {
 		Paint paint = new Paint();
-		/** 默认画笔颜色，黄色 */
+		/** 默认画笔颜色，灰色 */
 		paint.setColor(getResources().getColor(R.color.grey));
 		/** 结合处为圆弧 */
 		paint.setStrokeJoin(Paint.Join.ROUND);
@@ -112,7 +112,7 @@ public class StepArcView extends View {
 	}
 
 	/**
-	 * 2.绘制当前步数的红色圆弧
+	 * 2.绘制当前步数的灰色圆弧
 	 */
 	private void drawArcRed(Canvas canvas, RectF rectF) {
 		Paint paintCurrent = new Paint();
