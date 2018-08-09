@@ -98,7 +98,7 @@ public class SetPlanActivity extends AppCompatActivity
 			save();
 			break;
 		case R.id.tv_remind_time:
-			showTimeDialog1();
+			showTimeDialog();
 			break;
 		}
 	}
@@ -127,7 +127,7 @@ public class SetPlanActivity extends AppCompatActivity
 		finish();
 	}
 
-	private void showTimeDialog1() {
+	private void showTimeDialog() {
 		final Calendar calendar = Calendar.getInstance(Locale.CHINA);
 		int hour = calendar.get(Calendar.HOUR_OF_DAY);
 		int minute = calendar.get(Calendar.MINUTE);

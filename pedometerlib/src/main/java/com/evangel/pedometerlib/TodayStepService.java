@@ -1,7 +1,5 @@
 package com.evangel.pedometerlib;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -275,7 +273,7 @@ public class TodayStepService extends Service implements Handler.Callback {
 	 */
 	private void saveDb(boolean handler, int currentStep) {
 		TodayStepData todayStepData = new TodayStepData();
-		todayStepData.setToday(getTodayDate());
+		todayStepData.setToday(DateUtils.getTodayDate());
 		todayStepData.setDate(System.currentTimeMillis());
 		todayStepData.setStep(currentStep);
 		if (null != mTodayStepDBHelper) {
@@ -300,12 +298,6 @@ public class TodayStepService extends Service implements Handler.Callback {
 		// mTodayStepDBHelper.deleteTable();
 		// mTodayStepDBHelper.createTable();
 		// }
-	}
-
-	private String getTodayDate() {
-		Date date = new Date(System.currentTimeMillis());
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		return sdf.format(date);
 	}
 
 	/**

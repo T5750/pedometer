@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * @Description: 时间工具类（时间格式转换方便类）
  */
-class DateUtils {
+public class DateUtils {
 	private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat();
 
 	/**
@@ -67,5 +67,11 @@ class DateUtils {
 		}
 		String date = dateFormat(millis, newPattern);
 		return date;
+	}
+
+	public static String getTodayDate() {
+		Date date = new Date(System.currentTimeMillis());
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format(date);
 	}
 }

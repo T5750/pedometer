@@ -6,10 +6,11 @@ import com.evangel.pedometer.step.utils.Globals;
 import com.evangel.pedometer.step.utils.NumAnim;
 import com.evangel.pedometer.step.utils.SharedPreferencesUtils;
 import com.evangel.pedometer.view.StepArcView;
+import com.evangel.pedometerlib.DateUtils;
 import com.evangel.pedometerlib.ISportStepInterface;
+import com.evangel.pedometerlib.SportStepJsonUtils;
 import com.evangel.pedometerlib.TodayStepManager;
 import com.evangel.pedometerlib.TodayStepService;
-import com.evangel.pedometerlib.utils.LibGlobals;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity
 	private SharedPreferencesUtils sp;
 	private TextView stepArrayView;
 	private TextView tv_step;
+	private TextView tv_km;
 	private TextView tv_calorie;
 
 	private void assignViews() {
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity
 		tv_set = (TextView) findViewById(R.id.tv_set);
 		stepArrayView = (TextView) findViewById(R.id.stepArrayView);
 		tv_step = (TextView) findViewById(R.id.tv_step);
+		tv_km = (TextView) findViewById(R.id.tv_km);
 		tv_calorie = (TextView) findViewById(R.id.tv_calorie);
 	}
 
@@ -137,7 +140,8 @@ public class MainActivity extends AppCompatActivity
 	 */
 	private void updateStepCount(boolean flagNumAnim) {
 		Log.e(TAG, "updateStepCount : " + mStepSum);
-		tv_calorie.setText(LibGlobals.getKmCalorieByStep(mStepSum));
+		tv_km.setText(SportStepJsonUtils.getDistanceByStep(mStepSum));
+		tv_calorie.setText(SportStepJsonUtils.getCalorieByStep(mStepSum));
 		sav_step.setCurrentCount(Globals.getPlanWalk(sp), mStepSum);
 		if (flagNumAnim) {
 			NumAnim.startAnim(tv_step, mStepSum);
@@ -164,11 +168,12 @@ public class MainActivity extends AppCompatActivity
 			break;
 		}
 		case R.id.stepArrayView: {
-			// 获取所有步数列表
+			// 获取今日步数json
 			if (null != iSportStepInterface) {
 				try {
 					String stepArray = iSportStepInterface
-							.getTodaySportStepArray();
+							.getTodaySportStepArrayByDate(
+									DateUtils.getTodayDate());
 					mStepArrayTextView.setText(stepArray);
 				} catch (RemoteException e) {
 					e.printStackTrace();

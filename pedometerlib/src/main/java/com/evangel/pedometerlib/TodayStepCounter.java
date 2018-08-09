@@ -1,8 +1,5 @@
 package com.evangel.pedometerlib;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -151,11 +148,11 @@ class TodayStepCounter implements SensorEventListener {
 
 	private synchronized void dateChangeCleanStep() {
 		// 时间改变了清零，或者0点分隔回调
-		if (!getTodayDate().equals(mTodayDate) || mSeparate) {
+		if (!DateUtils.getTodayDate().equals(mTodayDate) || mSeparate) {
 			WakeLockUtils.getLock(mContext);
 			mCleanStep = true;
 			PreferencesHelper.setCleanStep(mContext, mCleanStep);
-			mTodayDate = getTodayDate();
+			mTodayDate = DateUtils.getTodayDate();
 			PreferencesHelper.setStepToday(mContext, mTodayDate);
 			mShutdown = false;
 			PreferencesHelper.setShutdown(mContext, mShutdown);
@@ -167,12 +164,6 @@ class TodayStepCounter implements SensorEventListener {
 				mOnStepCounterListener.onStepCounterClean();
 			}
 		}
-	}
-
-	private String getTodayDate() {
-		Date date = new Date(System.currentTimeMillis());
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		return sdf.format(date);
 	}
 
 	private void updateStepCounter() {
