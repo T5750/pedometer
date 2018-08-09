@@ -37,18 +37,20 @@ public class MainActivity extends AppCompatActivity
 	private TextView mStepArrayTextView;
 	private TSApplication tsApplication;
 	private TextView tv_data;
-	private StepArcView cc;
+	private StepArcView sav_step;
 	private TextView tv_set;
 	private SharedPreferencesUtils sp;
 	private TextView stepArrayView;
-	private TextView dynamicStepTextView;
+	private TextView tv_step;
+	private TextView tv_calorie;
 
 	private void assignViews() {
 		tv_data = (TextView) findViewById(R.id.tv_data);
-		cc = (StepArcView) findViewById(R.id.cc);
+		sav_step = (StepArcView) findViewById(R.id.sav_step);
 		tv_set = (TextView) findViewById(R.id.tv_set);
 		stepArrayView = (TextView) findViewById(R.id.stepArrayView);
-		dynamicStepTextView = (TextView) findViewById(R.id.dynamicStepTextView);
+		tv_step = (TextView) findViewById(R.id.tv_step);
+		tv_calorie = (TextView) findViewById(R.id.tv_calorie);
 	}
 
 	private void addListener() {
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity
 	private void initData() {
 		sp = new SharedPreferencesUtils(this);
 		// 设置当前步数为0
-		cc.setCurrentCount(Globals.getPlanWalk(sp), 0);
+		sav_step.setCurrentCount(Globals.getPlanWalk(sp), 0);
 	}
 
 	@Override
@@ -128,18 +130,20 @@ public class MainActivity extends AppCompatActivity
 	}
 
 	/**
-	 *
-	 * @param flagStepNumAnim
+	 * 每隔500毫秒获取一次计步数据刷新UI
+	 * 
+	 * @param flagNumAnim
 	 *            是否开启步数累加效果
 	 */
-	private void updateStepCount(boolean flagStepNumAnim) {
+	private void updateStepCount(boolean flagNumAnim) {
 		Log.e(TAG, "updateStepCount : " + mStepSum);
-		TextView stepTextView = (TextView) findViewById(R.id.stepTextView);
-		stepTextView.setText(LibGlobals.getKmCalorieByStep(mStepSum));
-		if (flagStepNumAnim) {
-			NumAnim.startAnim(dynamicStepTextView, mStepSum);
+		tv_calorie.setText(LibGlobals.getKmCalorieByStep(mStepSum));
+		sav_step.setCurrentCount(Globals.getPlanWalk(sp), mStepSum);
+		if (flagNumAnim) {
+			NumAnim.startAnim(tv_step, mStepSum);
+		} else {
+			tv_step.setText(String.valueOf(mStepSum));
 		}
-		cc.setCurrentCount(Globals.getPlanWalk(sp), mStepSum);
 	}
 
 	public void onClick(View view) {
@@ -221,8 +225,8 @@ public class MainActivity extends AppCompatActivity
 	public void onResume() {
 		super.onResume(); // Always call the superclass method first
 		if (mStepSum > 0) {
-			NumAnim.startAnim(dynamicStepTextView, mStepSum);
-			cc.setCurrentCount(Globals.getPlanWalk(sp), mStepSum);
+			// sav_step.setCurrentCount(Globals.getPlanWalk(sp), 0);
+			updateStepCount(true);
 		}
 	}
 }

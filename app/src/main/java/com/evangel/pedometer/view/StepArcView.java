@@ -70,7 +70,7 @@ public class StepArcView extends View {
 		/** 【第二步】绘制当前进度的黄色圆弧 */
 		drawArcRed(canvas, rectF);
 		/** 【第三步】绘制当前进度的黑色数字 */
-		drawTextNumber(canvas, centerX);
+		// drawTextNumber(canvas, centerX);
 		/** 【第四步】绘制"步数"的灰色数字 */
 		drawTextStepString(canvas, centerX);
 	}

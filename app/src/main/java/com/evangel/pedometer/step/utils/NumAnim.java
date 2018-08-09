@@ -11,6 +11,9 @@ import android.widget.TextView;
 public class NumAnim {
 	// 每秒刷新多少次
 	private static final int COUNTERS = 20;
+	/**
+	 * 小数点后保留几位
+	 */
 	private static final int DECIMAL_COUNTERS = 0;
 
 	public static void startAnim(TextView textV, float num) {
