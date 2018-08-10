@@ -74,4 +74,15 @@ public class DateUtils {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		return sdf.format(date);
 	}
+
+	/**
+	 * 获取小时
+	 * 
+	 * @param date
+	 * @return
+	 */
+	public static String getHour(Date date) {
+		SimpleDateFormat sdf = new SimpleDateFormat("HH");
+		return sdf.format(date);
+	}
 }

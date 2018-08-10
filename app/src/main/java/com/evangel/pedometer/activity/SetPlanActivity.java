@@ -122,6 +122,7 @@ public class SetPlanActivity extends AppCompatActivity
 			break;
 		case R.id.btn_save:
 			save();
+			Globals.showToast(this, "保存成功");
 			break;
 		case R.id.tv_remind_time:
 			showTimeDialog();

@@ -1,36 +1,42 @@
 package com.evangel.pedometer.step.utils;
 
+import android.content.Context;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.SuperscriptSpan;
+import android.widget.Toast;
+
+import lecho.lib.hellocharts.util.ChartUtils;
 
 public class Globals {
 	/**
 	 * 每日锻炼步数key
 	 */
-	public static String PLAN_WALK_KEY = "planWalk_QTY";
+	public static final String PLAN_WALK_KEY = "planWalk_QTY";
 	/**
 	 * 每日锻炼步数
 	 */
-	public static String PLAN_WALK_QTY = "5000";
+	public static final String PLAN_WALK_QTY = "5000";
 	/**
 	 * 身高key
 	 */
-	public static String HEIGHT_KEY = "height";
+	public static final String HEIGHT_KEY = "height";
 	/**
 	 * 身高默认值
 	 */
-	public static String HEIGHT_VALUE = "180";
+	public static final String HEIGHT_VALUE = "180";
 	/**
 	 * 体重key
 	 */
-	public static String WEIGHT_KEY = "weight";
+	public static final String WEIGHT_KEY = "weight";
 	/**
 	 * 体重默认值
 	 */
-	public static String WEIGHT_VALUE = "70";
+	public static final String WEIGHT_VALUE = "70";
+	public static final int[] COLORS = new int[] { ChartUtils.COLOR_BLUE,
+			ChartUtils.COLOR_VIOLET, ChartUtils.COLOR_GREEN };
 
 	/**
 	 * 获取锻炼步数
@@ -81,5 +87,19 @@ public class Globals {
 				text);
 		spannableStringBuilder.append(cm2);
 		return spannableStringBuilder;
+	}
+
+	/**
+	 * 用于首页chart
+	 * 
+	 * @return
+	 */
+	public static final int pickColor() {
+		return COLORS[(int) Math.round(Math.random() * (COLORS.length - 1))];
+	}
+
+	public static void showToast(Context context, String msg) {
+		Toast toast = Toast.makeText(context, msg, Toast.LENGTH_SHORT);
+		toast.show();
 	}
 }

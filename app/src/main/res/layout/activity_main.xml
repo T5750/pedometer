@@ -115,18 +115,25 @@
 			android:textColor="@color/grey"
 			android:textSize="16sp" />
 
-		<TextView
-			android:id="@+id/stepArrayView"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+		<lecho.lib.hellocharts.view.ColumnChartView
+			android:id="@+id/column_chart"
+			android:layout_width="fill_parent"
+			android:layout_height="300dp"
 			android:layout_below="@+id/tv_calorie_unit"
-			android:layout_centerHorizontal="true"
-			android:layout_marginTop="10dp"
-			android:drawableLeft="@mipmap/home_walk"
-			android:drawablePadding="5dp"
-			android:text="今日步数 json"
-			android:textColor="@color/black_two"
-			android:textSize="16sp" />
+			android:layout_margin="10dp" />
+
+		<!--<TextView-->
+		<!--android:id="@+id/stepArrayView"-->
+		<!--android:layout_width="wrap_content"-->
+		<!--android:layout_height="wrap_content"-->
+		<!--android:layout_below="@+id/tv_calorie_unit"-->
+		<!--android:layout_centerHorizontal="true"-->
+		<!--android:layout_marginTop="10dp"-->
+		<!--android:drawableLeft="@mipmap/home_walk"-->
+		<!--android:drawablePadding="5dp"-->
+		<!--android:text="今日步数 json"-->
+		<!--android:textColor="@color/black_two"-->
+		<!--android:textSize="16sp" />-->
 
 		<!--<Button-->
 		<!--android:id="@+id/stepArrayButton"-->
@@ -155,30 +162,30 @@
 		<!--android:onClick="onClick"-->
 		<!--android:text="根据时间和天数获取步数" />-->
 
-		<ScrollView
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:layout_below="@id/stepArrayView"
-			android:layout_centerHorizontal="true"
-			android:layout_marginLeft="10dp"
-			android:layout_marginRight="10dp"
-			android:layout_marginTop="10dp"
-			android:fillViewport="true">
+		<!--<ScrollView-->
+		<!--android:layout_width="match_parent"-->
+		<!--android:layout_height="match_parent"-->
+		<!--android:layout_below="@id/stepArrayView"-->
+		<!--android:layout_centerHorizontal="true"-->
+		<!--android:layout_marginLeft="10dp"-->
+		<!--android:layout_marginRight="10dp"-->
+		<!--android:layout_marginTop="10dp"-->
+		<!--android:fillViewport="true">-->
 
-			<LinearLayout
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:orientation="vertical">
+		<!--<LinearLayout-->
+		<!--android:layout_width="match_parent"-->
+		<!--android:layout_height="match_parent"-->
+		<!--android:orientation="vertical">-->
 
-				<TextView
-					android:id="@+id/stepArrayTextView"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_gravity="center_horizontal"
-					android:text="Hello World!"
-					android:textSize="16sp" />
-			</LinearLayout>
-		</ScrollView>
+		<!--<TextView-->
+		<!--android:id="@+id/stepArrayTextView"-->
+		<!--android:layout_width="wrap_content"-->
+		<!--android:layout_height="wrap_content"-->
+		<!--android:layout_gravity="center_horizontal"-->
+		<!--android:text="Hello World!"-->
+		<!--android:textSize="16sp" />-->
+		<!--</LinearLayout>-->
+		<!--</ScrollView>-->
 	</RelativeLayout>
 
 </RelativeLayout>
