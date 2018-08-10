@@ -86,6 +86,24 @@ public class SetPlanActivity extends AppCompatActivity
 		if (!achieveTime.isEmpty()) {
 			tv_remind_time.setText(achieveTime);
 		}
+		String height = (String) sp.getParam(Globals.HEIGHT_KEY,
+				Globals.HEIGHT_VALUE);
+		String weight = (String) sp.getParam(Globals.WEIGHT_KEY,
+				Globals.WEIGHT_VALUE);
+		if (!height.isEmpty()) {
+			if ("0".equals(height)) {
+				tv_height.setText(Globals.HEIGHT_VALUE);
+			} else {
+				tv_height.setText(height);
+			}
+		}
+		if (!weight.isEmpty()) {
+			if ("0".equals(weight)) {
+				tv_weight.setText(Globals.WEIGHT_VALUE);
+			} else {
+				tv_weight.setText(weight);
+			}
+		}
 	}
 
 	public void addListener() {
@@ -138,6 +156,18 @@ public class SetPlanActivity extends AppCompatActivity
 			this.achieveTime = "21:00";
 		} else {
 			sp.setParam("achieveTime", achieveTime);
+		}
+		String height = tv_height.getText().toString().trim();
+		String weight = tv_weight.getText().toString().trim();
+		if (height.isEmpty() || "0".equals(height)) {
+			sp.setParam(Globals.HEIGHT_KEY, Globals.HEIGHT_VALUE);
+		} else {
+			sp.setParam(Globals.HEIGHT_KEY, height);
+		}
+		if (weight.isEmpty() || "0".equals(weight)) {
+			sp.setParam(Globals.WEIGHT_KEY, Globals.WEIGHT_VALUE);
+		} else {
+			sp.setParam(Globals.WEIGHT_KEY, weight);
 		}
 		finish();
 	}

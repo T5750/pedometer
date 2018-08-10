@@ -15,6 +15,22 @@ public class Globals {
 	 * 每日锻炼步数
 	 */
 	public static String PLAN_WALK_QTY = "5000";
+	/**
+	 * 身高key
+	 */
+	public static String HEIGHT_KEY = "height";
+	/**
+	 * 身高默认值
+	 */
+	public static String HEIGHT_VALUE = "180";
+	/**
+	 * 体重key
+	 */
+	public static String WEIGHT_KEY = "weight";
+	/**
+	 * 体重默认值
+	 */
+	public static String WEIGHT_VALUE = "70";
 
 	/**
 	 * 获取锻炼步数
