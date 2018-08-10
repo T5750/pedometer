@@ -22,4 +22,24 @@ public class Globals {
 				Globals.PLAN_WALK_QTY);
 		return Integer.parseInt(planWalk_QTY);
 	}
+
+	/**
+	 * 获取BMI
+	 * 
+	 * @param heightStr
+	 * @param weightStr
+	 * @return
+	 */
+	public static float getBmi(String heightStr, String weightStr) {
+		float bmi = 0f;
+		try {
+			float height = Float.valueOf(heightStr);
+			float weight = Float.valueOf(weightStr);
+			float heightM = height / 100;
+			bmi = weight / (heightM * heightM);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return bmi;
+	}
 }

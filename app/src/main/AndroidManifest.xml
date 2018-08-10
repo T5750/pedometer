@@ -25,6 +25,9 @@
 		<activity
 			android:name=".activity.HistoryActivity"
 			android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+		<activity
+			android:name=".activity.BmiActivity"
+			android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
 		<receiver
 			android:name=".MyReceiver"

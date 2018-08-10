@@ -12,6 +12,7 @@ import com.evangel.pedometer.step.utils.Globals;
 import com.evangel.pedometer.step.utils.SharedPreferencesUtils;
 
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -34,9 +35,12 @@ public class SetPlanActivity extends AppCompatActivity
 	private CheckBox cb_remind;
 	private TextView tv_remind_time;
 	private Button btn_save;
+	private Button btn_bmi;
 	private String walk_qty;
 	private String remind;
 	private String achieveTime;
+	private EditText tv_height;
+	private EditText tv_weight;
 
 	private void assignViews() {
 		iv_left = (ImageView) findViewById(R.id.iv_left);
@@ -45,6 +49,9 @@ public class SetPlanActivity extends AppCompatActivity
 		cb_remind = (CheckBox) findViewById(R.id.cb_remind);
 		tv_remind_time = (TextView) findViewById(R.id.tv_remind_time);
 		btn_save = (Button) findViewById(R.id.btn_save);
+		btn_bmi = (Button) findViewById(R.id.btn_bmi);
+		tv_height = (EditText) findViewById(R.id.tv_height);
+		tv_weight = (EditText) findViewById(R.id.tv_weight);
 	}
 
 	@Override
@@ -85,6 +92,7 @@ public class SetPlanActivity extends AppCompatActivity
 		iv_left.setOnClickListener(this);
 		iv_right.setOnClickListener(this);
 		btn_save.setOnClickListener(this);
+		btn_bmi.setOnClickListener(this);
 		tv_remind_time.setOnClickListener(this);
 	}
 
@@ -99,6 +107,13 @@ public class SetPlanActivity extends AppCompatActivity
 			break;
 		case R.id.tv_remind_time:
 			showTimeDialog();
+			break;
+		case R.id.btn_bmi:
+			float bmi = Globals.getBmi(tv_height.getText().toString(),
+					tv_weight.getText().toString());
+			Intent intent = new Intent(this, BmiActivity.class);
+			intent.putExtra("bmi", bmi);
+			startActivity(intent);
 			break;
 		}
 	}

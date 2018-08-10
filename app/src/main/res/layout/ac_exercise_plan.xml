@@ -71,7 +71,6 @@
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="30px"
 		android:background="@color/white"
 		android:gravity="center_vertical"
 		android:orientation="vertical">
@@ -165,14 +164,89 @@
 				android:textColor="@color/black_two"
 				android:textSize="16sp" />
 		</LinearLayout>
+
+		<ImageView
+			android:layout_width="match_parent"
+			android:layout_height="1px"
+			android:background="#999999" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:padding="15dp">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_vertical"
+				android:text="身高(cm)"
+				android:textColor="@color/black_two"
+				android:textSize="16sp" />
+
+			<EditText
+				android:id="@+id/tv_height"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:background="@color/white"
+				android:gravity="center_vertical|right"
+				android:text="180"
+				android:textColor="@color/black_two"
+				android:textSize="16sp" />
+		</LinearLayout>
+
+		<ImageView
+			android:layout_width="match_parent"
+			android:layout_height="1px"
+			android:background="#999999" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:padding="15dp">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_vertical"
+				android:text="体重(kg)"
+				android:textColor="@color/black_two"
+				android:textSize="16sp" />
+
+			<EditText
+				android:id="@+id/tv_weight"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:background="@color/white"
+				android:gravity="center_vertical|right"
+				android:text="70"
+				android:textColor="@color/black_two"
+				android:textSize="16sp" />
+		</LinearLayout>
 	</LinearLayout>
+
+	<Button
+		android:id="@+id/btn_bmi"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
+		android:layout_marginTop="10dp"
+		android:background="@mipmap/btn_submit_bg"
+		android:text="计算 BMI"
+		android:textColor="@color/white"
+		android:textSize="16sp" />
 
 	<Button
 		android:id="@+id/btn_save"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_gravity="center_horizontal"
-		android:layout_marginTop="50dp"
+		android:layout_marginTop="10dp"
 		android:background="@mipmap/btn_submit_bg"
 		android:text="保存"
 		android:textColor="@color/white"
