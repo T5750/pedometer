@@ -19,12 +19,12 @@
 			android:layout_height="wrap_content"
 			android:layout_alignParentRight="true"
 			android:layout_alignParentTop="true"
-			android:layout_marginRight="20dp"
+			android:layout_marginRight="30dp"
 			android:layout_marginTop="20dp"
 			android:drawableLeft="@mipmap/home_statistical"
 			android:drawablePadding="5dp"
 			android:gravity="center_vertical"
-			android:text="查看历史步数"
+			android:text="历史"
 			android:textColor="@color/black_two"
 			android:textSize="16sp" />
 
@@ -42,13 +42,11 @@
 			android:layout_height="wrap_content"
 			android:layout_above="@+id/sav_step"
 			android:layout_alignParentLeft="true"
-			android:layout_alignParentStart="true"
-			android:layout_marginLeft="20dp"
-			android:layout_marginStart="20dp"
+			android:layout_marginLeft="30dp"
 			android:drawableLeft="@mipmap/home_question_mark"
 			android:drawablePadding="5dp"
 			android:gravity="center_vertical"
-			android:text="设置锻炼计划"
+			android:text="设置"
 			android:textColor="@color/black_two"
 			android:textSize="16sp" />
 

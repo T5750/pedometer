@@ -1,5 +1,11 @@
 package com.evangel.pedometer.step.utils;
 
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.SuperscriptSpan;
+
 public class Globals {
 	/**
 	 * 每日锻炼步数key
@@ -41,5 +47,23 @@ public class Globals {
 			e.printStackTrace();
 		}
 		return bmi;
+	}
+
+	/**
+	 * cm2上标，仅使用TextView时有效
+	 * 
+	 * @param text
+	 * @return
+	 */
+	public static SpannableStringBuilder unitCm2(String text) {
+		SpannableString cm2 = new SpannableString("cm2");
+		cm2.setSpan(new RelativeSizeSpan(0.5f), 2, 3,
+				Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);// 一半大小
+		cm2.setSpan(new SuperscriptSpan(), 2, 3,
+				Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // 上标
+		SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(
+				text);
+		spannableStringBuilder.append(cm2);
+		return spannableStringBuilder;
 	}
 }
