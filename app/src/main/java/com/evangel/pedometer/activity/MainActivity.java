@@ -259,16 +259,22 @@ public class MainActivity extends AppCompatActivity
 	private void generateChartData() {
 		if (null != iSportStepInterface) {
 			try {
+				int numColumns = 24;
 				String stepArray = iSportStepInterface
 						.getTodaySportStepArrayByDate(DateUtils.getTodayDate());
 				// stepArray =
-				// "[{\"sportDate\":1533856573082,\"stepNum\":100},{\"sportDate\":1533856573082,\"stepNum\":100},{\"sportDate\":1533856573082,\"stepNum\":100},{\"sportDate\":1533856573082,\"stepNum\":100},{\"sportDate\":1533884436964,\"stepNum\":900}]";
+				// "[{\"sportDate\":1533856573082,\"stepNum\":100},{\"sportDate\":1533856573083,\"stepNum\":200},{\"sportDate\":1533884436964,\"stepNum\":900}]";
 				Gson gson = new Gson();
 				List<StepData> stepDataList = gson.fromJson(stepArray,
 						new TypeToken<List<StepData>>() {
 						}.getType());
+				// 用于记录各个小时对应的总步数
 				List<Long> hourList = new ArrayList<>();
-				for (int i = 0; i < 24; i++) {
+				// 用于记录上一小时
+				int olderHour = 0;
+				// 用于记录上一小时对应的总步数
+				long olderStepNum = 0L;
+				for (int i = 0; i < numColumns; i++) {
 					hourList.add(0L);
 					for (int j = 0; j < stepDataList.size(); j++) {
 						StepData stepData = stepDataList.get(j);
@@ -276,14 +282,17 @@ public class MainActivity extends AppCompatActivity
 						Date date = new Date(sportDate);
 						String hour = DateUtils.getHour(date);
 						int hourInt = Integer.valueOf(hour);
+						if (i > 0 && i != olderHour) {
+							olderStepNum = hourList.get(i - 1);
+							olderHour = i;
+						}
 						if (i == hourInt) {
 							hourList.set(i,
-									hourList.get(i) + stepData.getStepNum());
+									stepData.getStepNum() - olderStepNum);
 						}
 					}
 				}
 				int numSubcolumns = 1;
-				int numColumns = 24;
 				// Column can have many subcolumns, here by default I use 1
 				// subcolumn in
 				// each of 8 columns.
