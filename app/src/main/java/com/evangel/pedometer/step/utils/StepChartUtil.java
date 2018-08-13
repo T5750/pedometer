@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import lecho.lib.hellocharts.model.Axis;
+import lecho.lib.hellocharts.model.AxisValue;
 import lecho.lib.hellocharts.model.Column;
 import lecho.lib.hellocharts.model.ColumnChartData;
 import lecho.lib.hellocharts.model.SubcolumnValue;
@@ -68,22 +69,25 @@ public class StepChartUtil {
 		List<Long> hourList = new ArrayList<>();
 		// 用于记录上一小时
 		int olderHour = 0;
-		// 用于记录上一小时对应的总步数
+		// 用于记录上一次大于0的总步数，hourList之和
 		long olderStepNum = 0L;
 		for (int i = 0; i < numColumns; i++) {
 			hourList.add(0L);
 			for (int j = 0; j < stepDataList.size(); j++) {
 				StepData stepData = stepDataList.get(j);
+				long stepNum = stepData.getStepNum();
 				long sportDate = stepData.getSportDate();
 				Date date = new Date(sportDate);
 				String hour = DateUtils.getHour(date);
 				int hourInt = Integer.valueOf(hour);
 				if (i > 0 && i != olderHour) {
-					olderStepNum = hourList.get(i - 1);
+					if (hourList.get(i - 1) > 0) {
+						olderStepNum = olderStepNum + hourList.get(i - 1);
+					}
 					olderHour = i;
 				}
-				if (i == hourInt) {
-					hourList.set(i, stepData.getStepNum() - olderStepNum);
+				if (i == hourInt && (stepNum - olderStepNum >= 0)) {
+					hourList.set(i, stepNum - olderStepNum);
 				}
 			}
 		}
@@ -98,7 +102,7 @@ public class StepChartUtil {
 	 */
 	public static ColumnChartData getColumnChartData(String stepArray) {
 		// stepArray =
-		// "[{\"sportDate\":1533856573082,\"stepNum\":100},{\"sportDate\":1533856573083,\"stepNum\":200},{\"sportDate\":1533884436964,\"stepNum\":900}]";
+		// "[{\"sportDate\":1533856573082,\"stepNum\":100},{\"sportDate\":1533856573083,\"stepNum\":200},{\"sportDate\":1533866573083,\"stepNum\":300},{\"sportDate\":1533884436964,\"stepNum\":900}]";
 		List<Long> hourList = StepChartUtil.getHourList(stepArray, NUM_COLUMNS);
 		int numSubcolumns = 1;
 		// Column can have many subcolumns, here by default I use 1
@@ -129,6 +133,13 @@ public class StepChartUtil {
 				axisX.setName("小时");
 				axisY.setName("步数");
 			}
+			// 初始化横坐标，去除放大时的小数
+			List<AxisValue> axisValueList = new ArrayList<>();
+			for (int i = 0; i < NUM_COLUMNS; i++) {
+				AxisValue axisValue = new AxisValue(i);
+				axisValueList.add(axisValue);
+			}
+			axisX.setValues(axisValueList);
 			data.setAxisXBottom(axisX);
 			data.setAxisYLeft(axisY);
 		} else {

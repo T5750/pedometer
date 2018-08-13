@@ -40,11 +40,33 @@ public class RoundIndicatorView extends View {
 	private int sweepInWidth;// 内圆的宽度
 	private int sweepOutWidth;// 外圆的宽度
 	private float currentNum = 0;// 需设置setter、getter 供属性动画使用
-	private String[] text = { "过轻", "健康", "过重", "肥胖", "极度肥胖" };
-	private int[] indicatorColor = { 0xffffffff, 0x00ffffff, 0x99ffffff,
-			0xffffffff };
-	private float[] BMI_VALUES = { 18.5f, 24, 28, 40 };
+	private static final String[] text = { "过轻", "健康", "过重", "肥胖", "极度肥胖" };
+	private static final int[] indicatorColor = { 0xffffffff, 0x00ffffff,
+			0x99ffffff, 0xffffffff };
+	/**
+	 * BMI 中国标准
+	 */
+	private static final float[] BMI_VALUES = { 18.5f, 24, 28, 40 };
+	/**
+	 * BMI 最大值
+	 */
 	private int BMI_MAX_VALUES = 50;
+	/**
+	 * 背景色：蓝色
+	 */
+	private static final int BACKGROUND_COLOR_BLUE = 0xFF00CED1;
+	/**
+	 * 背景色：红色
+	 */
+	private static final int BACKGROUND_COLOR_RED = 0xFFFF6347;
+	/**
+	 * 背景色：橙色
+	 */
+	private static final int BACKGROUND_COLOR_ORANGE = 0xFFFF8C00;
+	/**
+	 * 画笔颜色：白色
+	 */
+	private static final int INDICATOR_COLOR_WHITE = indicatorColor[0];
 
 	public float getCurrentNum() {
 		return currentNum;
@@ -68,7 +90,7 @@ public class RoundIndicatorView extends View {
 			int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		this.context = context;
-		setBackgroundColor(0xFF00CED1);
+		setBackgroundColor(BACKGROUND_COLOR_BLUE);
 		initAttr(attrs);
 		initPaint();
 	}
@@ -95,10 +117,12 @@ public class RoundIndicatorView extends View {
 		int color = 0;
 		if (value <= maxNum / 2) {
 			fraction = (float) value / (maxNum / 2);
-			color = (int) evealuator.evaluate(fraction, 0xFFFF8C00, 0xFF00CED1); // 由橙到蓝
+			color = (int) evealuator.evaluate(fraction, BACKGROUND_COLOR_ORANGE,
+					BACKGROUND_COLOR_BLUE); // 由橙到蓝
 		} else {
 			fraction = ((float) value - maxNum / 2) / (maxNum / 2);
-			color = (int) evealuator.evaluate(fraction, 0xFF00CED1, 0xFFFF6347); // 由蓝到红
+			color = (int) evealuator.evaluate(fraction, BACKGROUND_COLOR_BLUE,
+					BACKGROUND_COLOR_RED); // 由蓝到红
 		}
 		return color;
 	}
@@ -107,14 +131,14 @@ public class RoundIndicatorView extends View {
 		paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 		paint.setDither(true);
 		paint.setStyle(Paint.Style.STROKE);
-		paint.setColor(0xffffffff);
+		paint.setColor(INDICATOR_COLOR_WHITE);
 		paint_2 = new Paint(Paint.ANTI_ALIAS_FLAG);
 		paint_3 = new Paint(Paint.ANTI_ALIAS_FLAG);
 		paint_4 = new Paint(Paint.ANTI_ALIAS_FLAG);
 		paint_5 = new Paint(Paint.ANTI_ALIAS_FLAG);
 		paint_5.setDither(true);
 		paint_5.setStyle(Paint.Style.FILL);
-		paint_5.setColor(0xffffffff);
+		paint_5.setColor(INDICATOR_COLOR_WHITE);
 	}
 
 	private void initAttr(AttributeSet attrs) {
@@ -188,7 +212,7 @@ public class RoundIndicatorView extends View {
 		canvas.save();
 		paint_4.setStyle(Paint.Style.FILL);
 		paint_4.setTextSize(radius / 2);
-		paint_4.setColor(0xffffffff);
+		paint_4.setColor(INDICATOR_COLOR_WHITE);
 		canvas.drawText(currentNum + "",
 				-paint_4.measureText(currentNum + "") / 2, 0, paint_4);
 		paint_4.setTextSize(radius / 4);
@@ -233,7 +257,7 @@ public class RoundIndicatorView extends View {
 		float y = (float) ((radius + dp2px(10))
 				* Math.sin(Math.toRadians(startAngle + sweep)));
 		paint_3.setStyle(Paint.Style.FILL);
-		paint_3.setColor(0xffffffff);
+		paint_3.setColor(INDICATOR_COLOR_WHITE);
 		paint_3.setMaskFilter(
 				new BlurMaskFilter(dp2px(3), BlurMaskFilter.Blur.SOLID)); // 需关闭硬件加速
 		canvas.drawCircle(x, y, dp2px(3), paint_3);

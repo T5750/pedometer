@@ -2,10 +2,11 @@
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- [HelloCharts for Android 1.5.8](https://github.com/lecho/hellocharts-android)
+- [HelloCharts for Android](https://github.com/lecho/hellocharts-android)
 
-## Quick Start Guide
+## What's included
 - 计步模块（类似微信运动，支付宝计步，今日步数）
+- 步数仿支付宝余额数字累加效果
 - 计算BMI指数
 - HelloChart绘制今日步数柱状图
 

@@ -233,27 +233,37 @@
 		</LinearLayout>
 	</LinearLayout>
 
-	<Button
-		android:id="@+id/btn_bmi"
-		android:layout_width="wrap_content"
+	<LinearLayout
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_gravity="center_horizontal"
-		android:layout_marginTop="10dp"
-		android:background="@mipmap/btn_submit_bg"
-		android:text="计算 BMI"
-		android:textColor="@color/white"
-		android:textSize="16sp" />
+		android:orientation="horizontal"
+		android:padding="15dp">
 
-	<Button
-		android:id="@+id/btn_save"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center_horizontal"
-		android:layout_marginTop="10dp"
-		android:background="@mipmap/btn_submit_bg"
-		android:text="保存"
-		android:textColor="@color/white"
-		android:textSize="16sp" />
+		<Button
+			android:id="@+id/btn_bmi"
+			android:layout_width="0dp"
+			android:layout_height="40dp"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="10dp"
+			android:layout_weight="1"
+			android:background="@mipmap/btn_submit_bg"
+			android:text="计算 BMI"
+			android:textColor="@color/white"
+			android:textSize="16sp" />
+
+		<Button
+			android:id="@+id/btn_save"
+			android:layout_width="0dp"
+			android:layout_height="40dp"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginLeft="10dp"
+			android:layout_marginTop="10dp"
+			android:layout_weight="1"
+			android:background="@mipmap/btn_submit_bg"
+			android:text="保存"
+			android:textColor="@color/white"
+			android:textSize="16sp" />
+	</LinearLayout>
 
 	<WebView
 		android:id="@+id/wv"
