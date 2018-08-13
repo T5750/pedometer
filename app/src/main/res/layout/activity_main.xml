@@ -59,15 +59,6 @@
 			android:layout_marginTop="80dp"
 			android:textColor="@color/black_two"
 			android:textSize="45sp" />
-		<!--<TextView-->
-		<!--android:id="@+id/tv_isSupport"-->
-		<!--android:layout_width="wrap_content"-->
-		<!--android:layout_height="wrap_content"-->
-		<!--android:layout_below="@+id/cc"-->
-		<!--android:layout_centerHorizontal="true"-->
-		<!--android:layout_marginTop="10dp"-->
-		<!--android:text="该设备支持计步"-->
-		<!--android:textColor="@color/black_two" />-->
 
 		<TextView
 			android:id="@+id/tv_km"
@@ -121,71 +112,5 @@
 			android:layout_height="300dp"
 			android:layout_below="@+id/tv_calorie_unit"
 			android:layout_margin="10dp" />
-
-		<!--<TextView-->
-		<!--android:id="@+id/stepArrayView"-->
-		<!--android:layout_width="wrap_content"-->
-		<!--android:layout_height="wrap_content"-->
-		<!--android:layout_below="@+id/tv_calorie_unit"-->
-		<!--android:layout_centerHorizontal="true"-->
-		<!--android:layout_marginTop="10dp"-->
-		<!--android:drawableLeft="@mipmap/home_walk"-->
-		<!--android:drawablePadding="5dp"-->
-		<!--android:text="今日步数 json"-->
-		<!--android:textColor="@color/black_two"-->
-		<!--android:textSize="16sp" />-->
-
-		<!--<Button-->
-		<!--android:id="@+id/stepArrayButton"-->
-		<!--android:layout_width="wrap_content"-->
-		<!--android:layout_height="wrap_content"-->
-		<!--android:layout_below="@+id/stepArrayView"-->
-		<!--android:layout_marginTop="10dp"-->
-		<!--android:drawableLeft="@mipmap/home_walk"-->
-		<!--android:drawablePadding="10dp"-->
-		<!--android:onClick="onClick"-->
-		<!--android:text="所有步数" />-->
-
-		<!--<Button-->
-		<!--android:id="@+id/stepArrayButton1"-->
-		<!--android:layout_width="wrap_content"-->
-		<!--android:layout_height="wrap_content"-->
-		<!--android:layout_below="@+id/stepArrayButton"-->
-		<!--android:onClick="onClick"-->
-		<!--android:text="根据时间获取步数" />-->
-
-		<!--<Button-->
-		<!--android:id="@+id/stepArrayButton2"-->
-		<!--android:layout_width="wrap_content"-->
-		<!--android:layout_height="wrap_content"-->
-		<!--android:layout_below="@+id/stepArrayButton1"-->
-		<!--android:onClick="onClick"-->
-		<!--android:text="根据时间和天数获取步数" />-->
-
-		<!--<ScrollView-->
-		<!--android:layout_width="match_parent"-->
-		<!--android:layout_height="match_parent"-->
-		<!--android:layout_below="@id/stepArrayView"-->
-		<!--android:layout_centerHorizontal="true"-->
-		<!--android:layout_marginLeft="10dp"-->
-		<!--android:layout_marginRight="10dp"-->
-		<!--android:layout_marginTop="10dp"-->
-		<!--android:fillViewport="true">-->
-
-		<!--<LinearLayout-->
-		<!--android:layout_width="match_parent"-->
-		<!--android:layout_height="match_parent"-->
-		<!--android:orientation="vertical">-->
-
-		<!--<TextView-->
-		<!--android:id="@+id/stepArrayTextView"-->
-		<!--android:layout_width="wrap_content"-->
-		<!--android:layout_height="wrap_content"-->
-		<!--android:layout_gravity="center_horizontal"-->
-		<!--android:text="Hello World!"-->
-		<!--android:textSize="16sp" />-->
-		<!--</LinearLayout>-->
-		<!--</ScrollView>-->
 	</RelativeLayout>
-
 </RelativeLayout>

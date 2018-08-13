@@ -41,13 +41,11 @@ public class MainActivity extends AppCompatActivity
 	private Handler mDelayHandler = new Handler(new TodayStepCounterCall());
 	private int mStepSum;
 	private ISportStepInterface iSportStepInterface;
-	// private TextView mStepArrayTextView;
 	private TSApplication tsApplication;
 	private TextView tv_data;
 	private StepArcView sav_step;
 	private TextView tv_set;
 	private SharedPreferencesUtils sp;
-	// private TextView stepArrayView;
 	private TextView tv_step;
 	private TextView tv_km;
 	private TextView tv_calorie;
@@ -57,7 +55,6 @@ public class MainActivity extends AppCompatActivity
 		tv_data = (TextView) findViewById(R.id.tv_data);
 		sav_step = (StepArcView) findViewById(R.id.sav_step);
 		tv_set = (TextView) findViewById(R.id.tv_set);
-		// stepArrayView = (TextView) findViewById(R.id.stepArrayView);
 		tv_step = (TextView) findViewById(R.id.tv_step);
 		tv_km = (TextView) findViewById(R.id.tv_km);
 		tv_calorie = (TextView) findViewById(R.id.tv_calorie);
@@ -67,7 +64,6 @@ public class MainActivity extends AppCompatActivity
 	private void addListener() {
 		tv_set.setOnClickListener(this);
 		tv_data.setOnClickListener(this);
-		// stepArrayView.setOnClickListener(this);
 		chart.setOnValueTouchListener(new ValueTouchListener());
 	}
 
@@ -87,7 +83,6 @@ public class MainActivity extends AppCompatActivity
 		tsApplication = (TSApplication) getApplication();
 		// 初始化计步模块
 		TodayStepManager.init(getApplication());
-		// mStepArrayTextView = (TextView) findViewById(R.id.stepArrayTextView);
 		// 开启计步Service，同时绑定Activity进行aidl通信
 		Intent intent = new Intent(this, TodayStepService.class);
 		startService(intent);
@@ -177,60 +172,6 @@ public class MainActivity extends AppCompatActivity
 			startActivity(intent);
 			break;
 		}
-		// case R.id.stepArrayView: {
-		// // 获取今日步数json
-		// if (null != iSportStepInterface) {
-		// try {
-		// String stepArray = iSportStepInterface
-		// .getTodaySportStepArrayByDate(
-		// DateUtils.getTodayDate());
-		// mStepArrayTextView.setText(stepArray);
-		// } catch (RemoteException e) {
-		// e.printStackTrace();
-		// }
-		// }
-		// break;
-		// }
-		// case R.id.stepArrayButton: {
-		// // 获取所有步数列表
-		// if (null != iSportStepInterface) {
-		// try {
-		// String stepArray = iSportStepInterface
-		// .getTodaySportStepArray();
-		// mStepArrayTextView.setText(stepArray);
-		// } catch (RemoteException e) {
-		// e.printStackTrace();
-		// }
-		// }
-		// break;
-		// }
-		// case R.id.stepArrayButton1: {
-		// // 根据时间来获取步数列表
-		// if (null != iSportStepInterface) {
-		// try {
-		// String stepArray = iSportStepInterface
-		// .getTodaySportStepArrayByDate("2018-01-19");
-		// mStepArrayTextView.setText(stepArray);
-		// } catch (RemoteException e) {
-		// e.printStackTrace();
-		// }
-		// }
-		// break;
-		// }
-		// case R.id.stepArrayButton2: {
-		// // 获取多天步数列表
-		// if (null != iSportStepInterface) {
-		// try {
-		// String stepArray = iSportStepInterface
-		// .getTodaySportStepArrayByStartDateAndDays(
-		// "2018-01-20", 6);
-		// mStepArrayTextView.setText(stepArray);
-		// } catch (RemoteException e) {
-		// e.printStackTrace();
-		// }
-		// }
-		// break;
-		// }
 		default:
 			break;
 		}
@@ -253,7 +194,8 @@ public class MainActivity extends AppCompatActivity
 			try {
 				String stepArray = iSportStepInterface
 						.getTodaySportStepArrayByDate(DateUtils.getTodayDate());
-				ColumnChartData data = StepChartUtil.getColumnChartData(stepArray);
+				ColumnChartData data = StepChartUtil
+						.getColumnChartData(stepArray);
 				chart.setColumnChartData(data);
 			} catch (Exception e) {
 				e.printStackTrace();

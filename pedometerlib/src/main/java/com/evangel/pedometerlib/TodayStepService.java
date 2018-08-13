@@ -98,7 +98,7 @@ public class TodayStepService extends Service implements Handler.Callback {
 		updateNotification(CURRENT_SETP);
 		// 注册传感器
 		startStepDetector();
-		// TODO:测试数据Start
+		// 测试数据Start
 		// if(Logger.sIsDebug) {
 		// if (!isStepCounter()) {
 		// Toast.makeText(getApplicationContext(), "Lib 当前手机没有计步传感器",
@@ -109,7 +109,7 @@ public class TodayStepService extends Service implements Handler.Callback {
 		//
 		// }
 		// }
-		// TODO:测试数据End
+		// 测试数据End
 		microlog4AndroidError("onStartCommand");
 		return START_STICKY;
 	}

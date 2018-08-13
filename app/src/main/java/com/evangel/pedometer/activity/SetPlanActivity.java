@@ -139,7 +139,6 @@ public class SetPlanActivity extends AppCompatActivity
 
 	private void save() {
 		walk_qty = tv_step_number.getText().toString().trim();
-		// remind = "";
 		if (cb_remind.isChecked()) {
 			remind = "1";
 		} else {
@@ -177,18 +176,7 @@ public class SetPlanActivity extends AppCompatActivity
 		final Calendar calendar = Calendar.getInstance(Locale.CHINA);
 		int hour = calendar.get(Calendar.HOUR_OF_DAY);
 		int minute = calendar.get(Calendar.MINUTE);
-		// String time = tv_remind_time.getText().toString().trim();
 		final DateFormat df = new SimpleDateFormat("HH:mm");
-		// Date date = null;
-		// try {
-		// date = df.parse(time);
-		// } catch (ParseException e) {
-		// e.printStackTrace();
-		// }
-		//
-		// if (null != date) {
-		// calendar.setTime(date);
-		// }
 		new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
 			@Override
 			public void onTimeSet(TimePicker view, int hourOfDay, int minute) {

@@ -30,7 +30,7 @@
 			android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
 		<receiver
-			android:name=".MyReceiver"
+			android:name=".receiver.MyReceiver"
 			android:enabled="true"
 			android:exported="true"></receiver>
 	</application>

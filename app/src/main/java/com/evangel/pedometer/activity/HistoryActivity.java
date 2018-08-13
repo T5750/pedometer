@@ -27,7 +27,6 @@ import android.widget.TextView;
 public class HistoryActivity extends AppCompatActivity {
 	private ImageView iv_left;
 	private ListView lv;
-	private static String TAG = "HistoryActivity";
 
 	private void assignViews() {
 		iv_left = (ImageView) findViewById(R.id.iv_left);

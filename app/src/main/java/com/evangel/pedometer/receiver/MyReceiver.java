@@ -1,4 +1,4 @@
-package com.evangel.pedometer;
+package com.evangel.pedometer.receiver;
 
 import com.evangel.pedometer.activity.MainActivity;
 import com.evangel.pedometer.app.TSApplication;
