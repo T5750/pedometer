@@ -264,4 +264,29 @@
 			android:textColor="@color/white"
 			android:textSize="16sp" />
 	</LinearLayout>
+
+	<TextView
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1" />
+
+	<TextView
+		android:id="@+id/tv_copyright"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_horizontal"
+		android:text="兰染 版权所有"
+		android:textColor="@color/grey"
+		android:textSize="12sp" />
+
+	<TextView
+		android:id="@+id/tv_copyright_en"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="10dp"
+		android:gravity="center_horizontal"
+		android:text="© 2018-2019 T5750. All rights reserved."
+		android:textColor="@color/grey"
+		android:textSize="12sp" />
+
 </LinearLayout>

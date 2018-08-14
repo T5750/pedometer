@@ -14,7 +14,9 @@ import lecho.lib.hellocharts.model.AxisValue;
 import lecho.lib.hellocharts.model.Column;
 import lecho.lib.hellocharts.model.ColumnChartData;
 import lecho.lib.hellocharts.model.SubcolumnValue;
+import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.util.ChartUtils;
+import lecho.lib.hellocharts.view.ColumnChartView;
 
 /**
  * HelloCharts步数柱状图相关
@@ -26,7 +28,7 @@ public class StepChartUtil {
 	public static final int[] COLORS = new int[] { ChartUtils.COLOR_BLUE,
 			ChartUtils.COLOR_VIOLET, ChartUtils.COLOR_GREEN };
 	/**
-	 * 横坐标，24小时
+	 * X轴，24小时
 	 */
 	public static final int NUM_COLUMNS = 24;
 	/**
@@ -45,6 +47,10 @@ public class StepChartUtil {
 	 * 是否有坐标轴的名字
 	 */
 	public static final boolean HAS_AXES_NAMES = false;
+	/**
+	 * Y轴最大高度
+	 */
+	public static Long TOP_MAX = 0L;
 
 	/**
 	 * 用于今日步数柱状图
@@ -102,7 +108,7 @@ public class StepChartUtil {
 	 */
 	public static ColumnChartData getColumnChartData(String stepArray) {
 		// stepArray =
-		// "[{\"sportDate\":1533856573082,\"stepNum\":100},{\"sportDate\":1533856573083,\"stepNum\":200},{\"sportDate\":1533866573083,\"stepNum\":300},{\"sportDate\":1533884436964,\"stepNum\":900}]";
+		// "[{\"sportDate\":1533856573082,\"stepNum\":100},{\"sportDate\":1533856573083,\"stepNum\":200},{\"sportDate\":1533866573083,\"stepNum\":300},{\"sportDate\":1533884436964,\"stepNum\":1350}]";
 		List<Long> hourList = StepChartUtil.getHourList(stepArray, NUM_COLUMNS);
 		int numSubcolumns = 1;
 		// Column can have many subcolumns, here by default I use 1
@@ -117,6 +123,9 @@ public class StepChartUtil {
 				if (step > 0) {
 					values.add(new SubcolumnValue(Float.valueOf(step),
 							pickColor()));
+					if (TOP_MAX < step) {
+						TOP_MAX = step;
+					}
 				}
 			}
 			Column column = new Column(values);
@@ -147,5 +156,43 @@ public class StepChartUtil {
 			data.setAxisYLeft(null);
 		}
 		return data;
+	}
+
+	/**
+	 * 尽量处理y轴标签上部分被切断问题，增加一定的偏移量
+	 * 
+	 * @return
+	 */
+	public static float formatTopMax() {
+		float result = TOP_MAX / 100;
+		result = (result + 1) * 100;
+		return result;
+	}
+
+	/**
+	 * 绘制今日步数柱状图
+	 * 
+	 * @param chart
+	 * @param stepArray
+	 */
+	public static void drawColumnChart(ColumnChartView chart,
+			String stepArray) {
+		ColumnChartData data = getColumnChartData(stepArray);
+		chart.setColumnChartData(data);
+		float topMax = formatTopMax();
+		if (topMax > 0) {
+			// set chart data to initialize viewport, otherwise it will
+			// be[0,0;0,0]
+			// get initialized viewport and change if ranges according to your
+			// needs.
+			final Viewport v = new Viewport(chart.getMaximumViewport());
+			v.top = topMax; // example max value
+			v.bottom = 0; // example min value
+			chart.setMaximumViewport(v);
+			chart.setCurrentViewport(v);
+			// Optional step: disable viewport recalculations, thanks to this
+			// animations will not change viewport automatically.
+			chart.setViewportCalculationEnabled(false);
+		}
 	}
 }

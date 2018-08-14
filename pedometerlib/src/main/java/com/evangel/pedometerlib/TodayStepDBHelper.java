@@ -32,7 +32,10 @@ class TodayStepDBHelper extends SQLiteOpenHelper implements ITodayStepDBHelper {
 			+ " long, " + STEP + " long);";
 	private static final String SQL_DELETE_TABLE = "DROP TABLE IF EXISTS "
 			+ TABLE_NAME;
-	private static final String SQL_QUERY_ALL = "SELECT * FROM " + TABLE_NAME;
+	/**
+	 * 查询所有步数大于0的记录
+	 */
+	private static final String SQL_QUERY_ALL = "SELECT MAX(_id) _id, today, MAX(date) date, MAX(step) step FROM TodayStepData WHERE step>0 GROUP BY today ORDER BY date DESC";
 	private static final String SQL_QUERY_STEP = "SELECT * FROM " + TABLE_NAME
 			+ " WHERE " + TODAY + " = ? AND " + STEP + " = ?";
 	private static final String SQL_QUERY_STEP_BY_DATE = "SELECT * FROM "

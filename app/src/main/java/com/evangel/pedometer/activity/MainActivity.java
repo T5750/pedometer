@@ -28,7 +28,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import lecho.lib.hellocharts.listener.ColumnChartOnValueSelectListener;
-import lecho.lib.hellocharts.model.ColumnChartData;
 import lecho.lib.hellocharts.model.SubcolumnValue;
 import lecho.lib.hellocharts.view.ColumnChartView;
 
@@ -194,9 +193,7 @@ public class MainActivity extends AppCompatActivity
 			try {
 				String stepArray = iSportStepInterface
 						.getTodaySportStepArrayByDate(DateUtils.getTodayDate());
-				ColumnChartData data = StepChartUtil
-						.getColumnChartData(stepArray);
-				chart.setColumnChartData(data);
+				StepChartUtil.drawColumnChart(chart, stepArray);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
