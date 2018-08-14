@@ -1,4 +1,4 @@
-package com.evangel.pedometer.step.bean;
+package com.evangel.pedometer.bean;
 
 public class StepData {
 	/**

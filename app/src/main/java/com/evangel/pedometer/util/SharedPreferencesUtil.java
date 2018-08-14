@@ -1,4 +1,4 @@
-package com.evangel.pedometer.step.utils;
+package com.evangel.pedometer.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
  * SharedPreferences的一个工具类，调用setParam就能保存String, Integer, Boolean, Float,
  * Long类型的参数 同样调用getParam就能获取到保存在手机里面的数据
  */
-public class SharedPreferencesUtils {
+public class SharedPreferencesUtil {
 	private Context context;
 	/**
 	 * 保存在手机里面的文件名
@@ -25,11 +25,11 @@ public class SharedPreferencesUtils {
 	// }
 	// return sharedPreferencesUtils;
 	// }
-	public SharedPreferencesUtils(String FILE_NAME) {
+	public SharedPreferencesUtil(String FILE_NAME) {
 		this.FILE_NAME = FILE_NAME;
 	}
 
-	public SharedPreferencesUtils(Context context) {
+	public SharedPreferencesUtil(Context context) {
 		this.context = context;
 	}
 

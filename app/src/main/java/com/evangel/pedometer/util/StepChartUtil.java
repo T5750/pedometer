@@ -1,10 +1,10 @@
-package com.evangel.pedometer.step.utils;
+package com.evangel.pedometer.util;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.evangel.pedometer.step.bean.StepData;
+import com.evangel.pedometer.bean.StepData;
 import com.evangel.pedometerlib.DateUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -149,6 +149,7 @@ public class StepChartUtil {
 				axisValueList.add(axisValue);
 			}
 			axisX.setValues(axisValueList);
+			axisY.setName(" ");// 必须设置空格，要显示1000才可以显示完整
 			data.setAxisXBottom(axisX);
 			data.setAxisYLeft(axisY);
 		} else {
@@ -159,7 +160,9 @@ public class StepChartUtil {
 	}
 
 	/**
-	 * 尽量处理y轴标签上部分被切断问题，增加一定的偏移量
+	 * TODO 尽量处理Y轴标签上部分被切断问题，增加一定的偏移量
+	 * https://github.com/lecho/hellocharts-android/issues/243
+	 * https://github.com/lecho/hellocharts-android/issues/184
 	 * 
 	 * @return
 	 */

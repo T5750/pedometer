@@ -2,10 +2,10 @@ package com.evangel.pedometer.activity;
 
 import com.evangel.pedometer.R;
 import com.evangel.pedometer.app.TSApplication;
-import com.evangel.pedometer.step.utils.Globals;
-import com.evangel.pedometer.step.utils.NumAnim;
-import com.evangel.pedometer.step.utils.SharedPreferencesUtils;
-import com.evangel.pedometer.step.utils.StepChartUtil;
+import com.evangel.pedometer.util.Globals;
+import com.evangel.pedometer.util.NumAnim;
+import com.evangel.pedometer.util.SharedPreferencesUtil;
+import com.evangel.pedometer.util.StepChartUtil;
 import com.evangel.pedometer.view.StepArcView;
 import com.evangel.pedometerlib.DateUtils;
 import com.evangel.pedometerlib.ISportStepInterface;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity
 	private TextView tv_data;
 	private StepArcView sav_step;
 	private TextView tv_set;
-	private SharedPreferencesUtils sp;
+	private SharedPreferencesUtil sp;
 	private TextView tv_step;
 	private TextView tv_km;
 	private TextView tv_calorie;
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity
 	}
 
 	private void initData() {
-		sp = new SharedPreferencesUtils(this);
+		sp = new SharedPreferencesUtil(this);
 		// 设置当前步数为0
 		sav_step.setCurrentCount(Globals.getPlanWalk(sp), 0);
 	}

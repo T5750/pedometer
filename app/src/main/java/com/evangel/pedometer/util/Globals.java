@@ -1,4 +1,4 @@
-package com.evangel.pedometer.step.utils;
+package com.evangel.pedometer.util;
 
 import android.content.Context;
 import android.text.SpannableString;
@@ -40,7 +40,7 @@ public class Globals {
 	 * @param sp
 	 * @return
 	 */
-	public static Integer getPlanWalk(SharedPreferencesUtils sp) {
+	public static Integer getPlanWalk(SharedPreferencesUtil sp) {
 		// 获取用户设置的计划锻炼步数，没有设置过的话默认
 		String planWalk_QTY = (String) sp.getParam(Globals.PLAN_WALK_KEY,
 				Globals.PLAN_WALK_QTY);

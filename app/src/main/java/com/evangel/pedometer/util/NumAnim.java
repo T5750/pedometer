@@ -1,4 +1,4 @@
-package com.evangel.pedometer.step.utils;
+package com.evangel.pedometer.util;
 
 import java.util.LinkedList;
 import java.util.Random;

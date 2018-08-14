@@ -1,4 +1,4 @@
-package com.evangel.pedometer.step.utils;
+package com.evangel.pedometer.util;
 
 public class NumUtil {
 	public static String NumberFormat(float f, int m) {

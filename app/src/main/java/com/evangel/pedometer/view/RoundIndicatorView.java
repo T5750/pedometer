@@ -1,7 +1,7 @@
 package com.evangel.pedometer.view;
 
 import com.evangel.pedometer.R;
-import com.evangel.pedometer.step.utils.NumUtil;
+import com.evangel.pedometer.util.NumUtil;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;

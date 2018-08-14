@@ -8,8 +8,8 @@ import java.util.Date;
 import java.util.Locale;
 
 import com.evangel.pedometer.R;
-import com.evangel.pedometer.step.utils.Globals;
-import com.evangel.pedometer.step.utils.SharedPreferencesUtils;
+import com.evangel.pedometer.util.Globals;
+import com.evangel.pedometer.util.SharedPreferencesUtil;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -28,7 +28,7 @@ import android.widget.TimePicker;
  */
 public class SetPlanActivity extends AppCompatActivity
 		implements View.OnClickListener {
-	private SharedPreferencesUtils sp;
+	private SharedPreferencesUtil sp;
 	private ImageView iv_left;
 	private ImageView iv_right;
 	private EditText tv_step_number;
@@ -64,7 +64,7 @@ public class SetPlanActivity extends AppCompatActivity
 	}
 
 	public void initData() {// 获取锻炼计划
-		sp = new SharedPreferencesUtils(this);
+		sp = new SharedPreferencesUtil(this);
 		String planWalk_QTY = (String) sp.getParam(Globals.PLAN_WALK_KEY,
 				Globals.PLAN_WALK_QTY);
 		String remind = (String) sp.getParam("remind", "1");

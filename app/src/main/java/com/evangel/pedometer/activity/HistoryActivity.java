@@ -5,7 +5,7 @@ import java.util.List;
 import com.evangel.pedometer.R;
 import com.evangel.pedometer.adapter.CommonAdapter;
 import com.evangel.pedometer.adapter.CommonViewHolder;
-import com.evangel.pedometer.step.bean.StepData;
+import com.evangel.pedometer.bean.StepData;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
