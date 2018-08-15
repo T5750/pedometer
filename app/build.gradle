@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.1'
+    compileSdkVersion LIBRARY_COMPILE_SDK_VERSION
+    buildToolsVersion LIBRARY_BUILD_TOOLS_VERSION
     defaultConfig {
         applicationId "com.evangel.pedometer"
-        minSdkVersion 15
-        targetSdkVersion 28
+        minSdkVersion LIBRARY_MIN_SDK_VERSION
+        targetSdkVersion LIBRARY_TARGET_SDK_VERSION
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
