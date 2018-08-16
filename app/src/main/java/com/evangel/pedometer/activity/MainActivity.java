@@ -24,6 +24,7 @@ import android.os.Message;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
@@ -215,5 +216,20 @@ public class MainActivity extends AppCompatActivity
 		@Override
 		public void onValueDeselected() {
 		}
+	}
+
+	/**
+	 * 返回桌面，不退出应用
+	 */
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			Intent home = new Intent(Intent.ACTION_MAIN);
+			home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			home.addCategory(Intent.CATEGORY_HOME);
+			startActivity(home);
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 }

@@ -3,6 +3,7 @@
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [HelloCharts for Android](https://github.com/lecho/hellocharts-android)
+- [LeakCanary](https://github.com/square/leakcanary)
 
 ## What's included
 - 计步模块（类似微信运动，支付宝计步，今日步数）
