@@ -136,7 +136,7 @@ public class StepArcView extends View {
 		vTextPaint.setTextSize(numberTextSize);
 		Typeface font = Typeface.create(Typeface.SANS_SERIF, Typeface.NORMAL);
 		vTextPaint.setTypeface(font);// 字体风格
-		vTextPaint.setColor(getResources().getColor(R.color.black_two));
+		vTextPaint.setColor(getResources().getColor(R.color.lightBlack));
 		Rect bounds_Number = new Rect();
 		vTextPaint.getTextBounds(stepNumber, 0, stepNumber.length(),
 				bounds_Number);
