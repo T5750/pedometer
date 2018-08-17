@@ -4,6 +4,8 @@
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [HelloCharts for Android](https://github.com/lecho/hellocharts-android)
 - [LeakCanary](https://github.com/square/leakcanary)
+- [Genymotion](https://www.genymotion.com/download/)
+- [Android Debug Database](https://github.com/amitshekhariitbhu/Android-Debug-Database)
 
 ## What's included
 - 计步模块（类似微信运动，支付宝计步，今日步数）
@@ -11,6 +13,11 @@
 - 计算BMI指数，仿支付宝芝麻信用分仪表盘
 - HelloChart绘制今日步数柱状图
 - 设置透明状态栏，Android Version >= 4.4
+
+### Android Debug Database
+1. ```debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'```
+1. Genymotion -> Configuration -> Network mode -> Bridge
+1. D/DebugDB: Open http://xxx.xxx.xxx.xxx:8080 in your browser
 
 ## Tips
 - 一些不能后台的手机需要告诉用户每天早上打开一次app才可以正常计步。

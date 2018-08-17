@@ -25,6 +25,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
+        debug {
+            // Android Debug Database
+            resValue("string", "PORT_NUMBER", "8081")
+        }
     }
 }
 
@@ -36,4 +40,5 @@ dependencies {
     compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'
 }
