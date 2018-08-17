@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.json.JSONArray;
 
-import com.evangel.pedometerlib.utils.LibGlobals;
+import com.evangel.pedometerlib.util.LibGlobals;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -33,8 +33,10 @@ public class TodayStepService extends Service implements Handler.Callback {
 	 * 数据库中保存多少天的运动数据
 	 */
 	private static final int DB_LIMIT = 366;
-	// 保存数据库频率
-	private static final int DB_SAVE_COUNTER = 50;
+	/**
+	 * 保存数据库频率
+	 */
+	private static final int DB_SAVE_COUNTER = 30;
 	// 传感器的采样周期，这里使用SensorManager.SENSOR_DELAY_FASTEST，如果使用SENSOR_DELAY_UI会导致部分手机后台清理内存之后传感器不记步
 	private static final int SAMPLING_PERIOD_US = SensorManager.SENSOR_DELAY_FASTEST;
 	private static final int HANDLER_WHAT_SAVE_STEP = 0;

@@ -1,4 +1,4 @@
-package com.evangel.pedometerlib.utils;
+package com.evangel.pedometerlib.util;
 
 import static com.evangel.pedometerlib.SportStepJsonUtils.getCalorieByStep;
 import static com.evangel.pedometerlib.SportStepJsonUtils.getDistanceByStep;
