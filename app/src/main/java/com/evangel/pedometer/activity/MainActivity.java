@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity
 	 * 循环取当前时刻的步数中间的间隔时间
 	 */
 	private long TIME_INTERVAL_REFRESH = 500;
-	private Handler mDelayHandler = new WeakRefHandler(
-			new TodayStepCounterCall());
+	private TodayStepCounterCall todayStepCounterCall = new TodayStepCounterCall();
+	private Handler mDelayHandler = new WeakRefHandler(todayStepCounterCall);
 	private int mStepSum;
 	private ISportStepInterface iSportStepInterface;
 	private TSApplication tsApplication;
