@@ -227,7 +227,7 @@
 				android:layout_weight="1"
 				android:background="@color/white"
 				android:gravity="center_vertical|right"
-				android:text="70"
+				android:text="60"
 				android:textColor="@color/lightBlack"
 				android:textSize="16sp" />
 		</LinearLayout>
