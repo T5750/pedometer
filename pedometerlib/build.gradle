@@ -38,8 +38,8 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile 'junit:junit:4.12'
-    compile files('libs/microlog4android-1.0.0.jar')
-    testCompile 'org.robolectric:robolectric:3.0-rc3'
-    testCompile 'org.mockito:mockito-core:1.+'
+    testImplementation 'junit:junit:4.12'
+    implementation files('libs/microlog4android-1.0.0.jar')
+    testImplementation 'org.robolectric:robolectric:3.0-rc3'
+    testImplementation 'org.mockito:mockito-core:1.+'
 }

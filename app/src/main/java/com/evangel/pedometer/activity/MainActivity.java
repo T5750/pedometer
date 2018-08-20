@@ -6,6 +6,8 @@ import com.evangel.pedometer.util.Globals;
 import com.evangel.pedometer.util.NumAnim;
 import com.evangel.pedometer.util.SharedPreferencesUtil;
 import com.evangel.pedometer.util.StepChartUtil;
+import com.evangel.pedometer.util.ValueTouchListener;
+import com.evangel.pedometer.util.WeakRefHandler;
 import com.evangel.pedometer.view.StepArcView;
 import com.evangel.pedometerlib.DateUtils;
 import com.evangel.pedometerlib.ISportStepInterface;
@@ -28,17 +30,18 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import lecho.lib.hellocharts.listener.ColumnChartOnValueSelectListener;
-import lecho.lib.hellocharts.model.SubcolumnValue;
 import lecho.lib.hellocharts.view.ColumnChartView;
 
 public class MainActivity extends AppCompatActivity
 		implements View.OnClickListener {
 	private static String TAG = "MainActivity";
 	private static final int REFRESH_STEP_WHAT = 0;
-	// 循环取当前时刻的步数中间的间隔时间
+	/**
+	 * 循环取当前时刻的步数中间的间隔时间
+	 */
 	private long TIME_INTERVAL_REFRESH = 500;
-	private Handler mDelayHandler = new Handler(new TodayStepCounterCall());
+	private Handler mDelayHandler = new WeakRefHandler(
+			new TodayStepCounterCall());
 	private int mStepSum;
 	private ISportStepInterface iSportStepInterface;
 	private TSApplication tsApplication;
@@ -49,7 +52,10 @@ public class MainActivity extends AppCompatActivity
 	private TextView tv_step;
 	private TextView tv_km;
 	private TextView tv_calorie;
-	private ColumnChartView chart; // 柱状图的自定义View
+	/**
+	 * 柱状图的自定义View
+	 */
+	private ColumnChartView chart;
 
 	private void assignViews() {
 		tv_data = (TextView) findViewById(R.id.tv_data);
@@ -199,22 +205,6 @@ public class MainActivity extends AppCompatActivity
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
-	}
-
-	/**
-	 * 图像的监听
-	 */
-	private class ValueTouchListener
-			implements ColumnChartOnValueSelectListener {
-		@Override
-		public void onValueSelected(int columnIndex, int subcolumnIndex,
-				SubcolumnValue value) {
-			// showToast("Selected: " + value);
-		}
-
-		@Override
-		public void onValueDeselected() {
 		}
 	}
 
