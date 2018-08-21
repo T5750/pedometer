@@ -14,6 +14,7 @@ import com.evangel.pedometerlib.ISportStepInterface;
 import com.evangel.pedometerlib.SportStepJsonUtils;
 import com.evangel.pedometerlib.TodayStepManager;
 import com.evangel.pedometerlib.TodayStepService;
+import com.orhanobut.logger.Logger;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -25,7 +26,6 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -34,7 +34,6 @@ import lecho.lib.hellocharts.view.ColumnChartView;
 
 public class MainActivity extends AppCompatActivity
 		implements View.OnClickListener {
-	private static String TAG = "MainActivity";
 	private static final int REFRESH_STEP_WHAT = 0;
 	/**
 	 * 循环取当前时刻的步数中间的间隔时间
@@ -150,7 +149,7 @@ public class MainActivity extends AppCompatActivity
 	 *            是否开启步数累加效果
 	 */
 	private void updateStepCount(boolean flagNumAnim) {
-		Log.e(TAG, "updateStepCount : " + mStepSum);
+		Logger.i("updateStepCount : " + mStepSum);
 		tv_km.setText(SportStepJsonUtils.getDistanceByStep(mStepSum));
 		tv_calorie.setText(SportStepJsonUtils.getCalorieByStep(mStepSum));
 		sav_step.setCurrentCount(Globals.getPlanWalk(sp), mStepSum);

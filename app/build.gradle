@@ -38,6 +38,7 @@ dependencies {
     implementation project(':pedometerlib')
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.github.lecho:hellocharts-library:1.5.8@aar'
+    implementation 'com.orhanobut:logger:2.2.0'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'

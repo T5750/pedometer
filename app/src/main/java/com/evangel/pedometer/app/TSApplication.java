@@ -1,5 +1,6 @@
 package com.evangel.pedometer.app;
 
+import com.evangel.pedometer.util.LoggerConfig;
 import com.squareup.leakcanary.LeakCanary;
 
 import android.app.Activity;
@@ -53,6 +54,7 @@ public class TSApplication extends Application {
 			public void onActivityDestroyed(Activity activity) {
 			}
 		});
+		LoggerConfig.installLogger();
 	}
 
 	/**
