@@ -55,7 +55,7 @@ public class StepChartUtil {
 	/**
 	 * 用于今日步数柱状图
 	 */
-	public static final int pickColor() {
+	public static int pickColor() {
 		return COLORS[(int) Math.round(Math.random() * (COLORS.length - 1))];
 	}
 
@@ -66,7 +66,7 @@ public class StepChartUtil {
 	 * @param numColumns
 	 * @return
 	 */
-	public static List getHourList(String stepArray, int numColumns) {
+	public static List<Long> getHourList(String stepArray, int numColumns) {
 		Gson gson = new Gson();
 		List<StepData> stepDataList = gson.fromJson(stepArray,
 				new TypeToken<List<StepData>>() {
@@ -167,7 +167,7 @@ public class StepChartUtil {
 	 * @return
 	 */
 	public static float formatTopMax() {
-		float result = TOP_MAX / 100;
+		float result = TOP_MAX / 100f;
 		result = (result + 1) * 100;
 		return result;
 	}

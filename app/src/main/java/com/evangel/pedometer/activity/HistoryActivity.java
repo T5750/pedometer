@@ -29,8 +29,8 @@ public class HistoryActivity extends AppCompatActivity {
 	private ListView lv;
 
 	private void assignViews() {
-		iv_left = (ImageView) findViewById(R.id.iv_left);
-		lv = (ListView) findViewById(R.id.lv);
+		iv_left = findViewById(R.id.iv_left);
+		lv = findViewById(R.id.lv);
 	}
 
 	@Override

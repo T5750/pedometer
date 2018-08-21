@@ -46,11 +46,11 @@ public class RoundIndicatorView extends View {
 	/**
 	 * BMI 中国标准
 	 */
-	private static final float[] BMI_VALUES = { 18.5f, 24, 28, 40 };
+	private static final float[] BMI_VALUES = { 18.5f, 24f, 28f, 40f };
 	/**
 	 * BMI 最大值
 	 */
-	private int BMI_MAX_VALUES = 50;
+	private static final int BMI_MAX_VALUES = 50;
 	/**
 	 * 背景色：蓝色
 	 */

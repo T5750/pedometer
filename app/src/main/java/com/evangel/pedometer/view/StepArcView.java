@@ -23,7 +23,7 @@ public class StepArcView extends View {
 	/**
 	 * 画步数的数值的字体大小
 	 */
-	private float numberTextSize = 0;
+	private float numberTextSize = 0f;
 	/**
 	 * 步数
 	 */
@@ -31,19 +31,19 @@ public class StepArcView extends View {
 	/**
 	 * 开始绘制圆弧的角度
 	 */
-	private float startAngle = 135;
+	private float startAngle = 135f;
 	/**
 	 * 终点对应的角度和起始点对应的角度的夹角
 	 */
-	private float angleLength = 270;
+	private static final float angleLength = 270f;
 	/**
 	 * 所要绘制的当前步数的红色圆弧终点到起点的夹角
 	 */
-	private float currentAngleLength = 0;
+	private float currentAngleLength = 0f;
 	/**
 	 * 动画时长
 	 */
-	private int animationLength = 500;
+	private static final int animationLength = 500;
 
 	public StepArcView(Context context) {
 		super(context);
@@ -76,7 +76,7 @@ public class StepArcView extends View {
 	}
 
 	/**
-	 * 1.绘制总步数的黄色圆弧
+	 * 1.绘制总步数的灰色圆弧
 	 *
 	 * @param canvas
 	 *            画笔
@@ -112,7 +112,7 @@ public class StepArcView extends View {
 	}
 
 	/**
-	 * 2.绘制当前步数的灰色圆弧
+	 * 2.绘制当前步数的黄色圆弧
 	 */
 	private void drawArcRed(Canvas canvas, RectF rectF) {
 		Paint paintCurrent = new Paint();
@@ -122,6 +122,9 @@ public class StepArcView extends View {
 		paintCurrent.setAntiAlias(true);// 抗锯齿功能
 		paintCurrent.setStrokeWidth(borderWidth);// 设置画笔宽度
 		paintCurrent.setColor(getResources().getColor(R.color.yellow));// 设置画笔颜色
+		if (currentAngleLength > angleLength) {
+			currentAngleLength = angleLength;
+		}
 		canvas.drawArc(rectF, startAngle, currentAngleLength, false,
 				paintCurrent);
 	}

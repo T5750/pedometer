@@ -8,8 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 
 public class MyReceiver extends BaseClickBroadcast {
-	private static final String TAG = "MyReceiver";
-
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		TSApplication tsApplication = (TSApplication) context

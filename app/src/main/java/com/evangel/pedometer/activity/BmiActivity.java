@@ -18,7 +18,8 @@ public class BmiActivity extends AppCompatActivity
 	private RoundIndicatorView roundIndicatorView;
 
 	private void assignViews() {
-		iv_left = (ImageView) findViewById(R.id.iv_left);
+		iv_left = findViewById(R.id.iv_left);
+		roundIndicatorView = findViewById(R.id.my_view);
 	}
 
 	@Override
@@ -33,7 +34,6 @@ public class BmiActivity extends AppCompatActivity
 	public void initData() {
 		Intent intent = getIntent();
 		float bmi = intent.getFloatExtra("bmi", 0f);
-		roundIndicatorView = (RoundIndicatorView) findViewById(R.id.my_view);
 		roundIndicatorView.setCurrentNumAnim(bmi);
 	}
 

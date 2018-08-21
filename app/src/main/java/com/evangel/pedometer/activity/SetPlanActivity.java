@@ -36,22 +36,19 @@ public class SetPlanActivity extends AppCompatActivity
 	private TextView tv_remind_time;
 	private Button btn_save;
 	private Button btn_bmi;
-	private String walk_qty;
-	private String remind;
-	private String achieveTime;
 	private EditText tv_height;
 	private EditText tv_weight;
 
 	private void assignViews() {
-		iv_left = (ImageView) findViewById(R.id.iv_left);
-		iv_right = (ImageView) findViewById(R.id.iv_right);
-		tv_step_number = (EditText) findViewById(R.id.tv_step_number);
-		cb_remind = (CheckBox) findViewById(R.id.cb_remind);
-		tv_remind_time = (TextView) findViewById(R.id.tv_remind_time);
-		btn_save = (Button) findViewById(R.id.btn_save);
-		btn_bmi = (Button) findViewById(R.id.btn_bmi);
-		tv_height = (EditText) findViewById(R.id.tv_height);
-		tv_weight = (EditText) findViewById(R.id.tv_weight);
+		iv_left = findViewById(R.id.iv_left);
+		iv_right = findViewById(R.id.iv_right);
+		tv_step_number = findViewById(R.id.tv_step_number);
+		cb_remind = findViewById(R.id.cb_remind);
+		tv_remind_time = findViewById(R.id.tv_remind_time);
+		btn_save = findViewById(R.id.btn_save);
+		btn_bmi = findViewById(R.id.btn_bmi);
+		tv_height = findViewById(R.id.tv_height);
+		tv_weight = findViewById(R.id.tv_weight);
 	}
 
 	@Override
@@ -63,7 +60,7 @@ public class SetPlanActivity extends AppCompatActivity
 		addListener();
 	}
 
-	public void initData() {// 获取锻炼计划
+	public void initData() {
 		sp = new SharedPreferencesUtil(this);
 		String planWalk_QTY = (String) sp.getParam(Globals.PLAN_WALK_KEY,
 				Globals.PLAN_WALK_QTY);
@@ -138,13 +135,14 @@ public class SetPlanActivity extends AppCompatActivity
 	}
 
 	private void save() {
-		walk_qty = tv_step_number.getText().toString().trim();
+		String walk_qty = tv_step_number.getText().toString().trim();
+		String remind;
 		if (cb_remind.isChecked()) {
 			remind = "1";
 		} else {
 			remind = "0";
 		}
-		achieveTime = tv_remind_time.getText().toString().trim();
+		String achieveTime = tv_remind_time.getText().toString().trim();
 		if (walk_qty.isEmpty() || "0".equals(walk_qty)) {
 			sp.setParam(Globals.PLAN_WALK_KEY, Globals.PLAN_WALK_QTY);
 		} else {
@@ -153,7 +151,7 @@ public class SetPlanActivity extends AppCompatActivity
 		sp.setParam("remind", remind);
 		if (achieveTime.isEmpty()) {
 			sp.setParam("achieveTime", "21:00");
-			this.achieveTime = "21:00";
+			achieveTime = "21:00";
 		} else {
 			sp.setParam("achieveTime", achieveTime);
 		}

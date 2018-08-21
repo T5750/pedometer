@@ -1,7 +1,6 @@
 package com.evangel.pedometer.activity;
 
 import com.evangel.pedometer.R;
-import com.evangel.pedometer.app.TSApplication;
 import com.evangel.pedometer.util.Globals;
 import com.evangel.pedometer.util.NumAnim;
 import com.evangel.pedometer.util.SharedPreferencesUtil;
@@ -43,7 +42,6 @@ public class MainActivity extends AppCompatActivity
 	private Handler mDelayHandler = new WeakRefHandler(todayStepCounterCall);
 	private int mStepSum;
 	private ISportStepInterface iSportStepInterface;
-	private TSApplication tsApplication;
 	private TextView tv_data;
 	private StepArcView sav_step;
 	private TextView tv_set;
@@ -57,13 +55,13 @@ public class MainActivity extends AppCompatActivity
 	private ColumnChartView chart;
 
 	private void assignViews() {
-		tv_data = (TextView) findViewById(R.id.tv_data);
-		sav_step = (StepArcView) findViewById(R.id.sav_step);
-		tv_set = (TextView) findViewById(R.id.tv_set);
-		tv_step = (TextView) findViewById(R.id.tv_step);
-		tv_km = (TextView) findViewById(R.id.tv_km);
-		tv_calorie = (TextView) findViewById(R.id.tv_calorie);
-		chart = (ColumnChartView) findViewById(R.id.column_chart);
+		tv_data = findViewById(R.id.tv_data);
+		sav_step = findViewById(R.id.sav_step);
+		tv_set = findViewById(R.id.tv_set);
+		tv_step = findViewById(R.id.tv_step);
+		tv_km = findViewById(R.id.tv_km);
+		tv_calorie = findViewById(R.id.tv_calorie);
+		chart = findViewById(R.id.column_chart);
 	}
 
 	private void addListener() {
@@ -86,7 +84,6 @@ public class MainActivity extends AppCompatActivity
 		assignViews();
 		addListener();
 		initData();
-		tsApplication = (TSApplication) getApplication();
 		// 初始化计步模块
 		TodayStepManager.init(getApplication());
 		// 开启计步Service，同时绑定Activity进行aidl通信
