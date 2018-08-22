@@ -52,16 +52,16 @@ public class ExampleApplication extends Application {
 1. ```Logger.addLogAdapter(new AndroidLogAdapter());```
 1. ```Logger.d("hello");```
 
-> Changed Android Studio from 3.1.2 to 3.3 Canary 5.
+> Changed Android Studio from 3.1.4 to 3.3 Canary 5.
 
 ## Tips
-- 一些不能后台的手机需要告诉用户每天早上打开一次app才可以正常计步。
+- 一些不能后台的手机，需告诉用户每天早上打开一次app才可以正常计步
+- 保存数据库频率，TodayStepService.DB_SAVE_COUNTER
+- 卡路里，目前默认按体重60kg来进行计算
+
+## References
 - [TodayStepCounter](https://github.com/jiahongfei/TodayStepCounter) Commits on Feb 24, 2018
 - [DylanStepCount](https://github.com/linglongxin24/DylanStepCount) Commits on Nov 23, 2017
-
-## Links
-- [TodayStepCounter](https://github.com/jiahongfei/TodayStepCounter)
-- [DylanStepCount](https://github.com/linglongxin24/DylanStepCount)
 
 ## License
 Pedometer is Open Source software released under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.html).
