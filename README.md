@@ -16,6 +16,8 @@
 - HelloChart绘制今日步数柱状图
 - 设置透明状态栏，Android Version >= 4.4
 
+![homepage](http://www.wailian.work/images/2018/08/22/homepage.gif)
+
 ### HelloCharts for Android
 - ```implementation 'com.github.lecho:hellocharts-library:1.5.8@aar'```
 - ```lecho.lib.hellocharts.view.ColumnChartView```
@@ -56,8 +58,10 @@ public class ExampleApplication extends Application {
 
 ## Tips
 - 一些不能后台的手机，需告诉用户每天早上打开一次app才可以正常计步
-- 保存数据库频率，TodayStepService.DB_SAVE_COUNTER
+- 数据库中，运动数据保存366天，`TodayStepService.DB_LIMIT`
+- 保存数据库的频率，`TodayStepService.DB_SAVE_COUNTER`
 - 卡路里，目前默认按体重60kg来进行计算
+- 设置中的提醒，仅供参考
 
 ## References
 - [TodayStepCounter](https://github.com/jiahongfei/TodayStepCounter) Commits on Feb 24, 2018
