@@ -40,7 +40,7 @@ public class Globals {
 	/**
 	 * 体重默认值
 	 */
-	public static final String WEIGHT_VALUE = "70";
+	public static final String WEIGHT_VALUE = "60";
 
 	/**
 	 * 获取锻炼步数
