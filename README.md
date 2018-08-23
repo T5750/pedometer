@@ -1,4 +1,10 @@
+[![Releases](https://img.shields.io/github/release/T5750/pedometer.svg)](https://github.com/T5750/pedometer/releases/latest)
+[![License](https://img.shields.io/badge/license-Apache-blue.svg)](https://github.com/T5750/pedometer/blob/master/LICENSE.txt)
+
+![homepage](http://www.wailian.work/images/2018/08/22/homepage.gif)
+
 # Pedometer
+[<img src="http://www.wailian.work/images/2018/08/23/direct-apk-download.png" alt="Direct apk download" height="80">](https://github.com/T5750/pedometer/releases/latest)
 
 ## Runtime Environment
 - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -15,8 +21,6 @@
 - 计算BMI指数，仿支付宝芝麻信用分仪表盘
 - HelloChart绘制今日步数柱状图
 - 设置透明状态栏，Android Version >= 4.4
-
-![homepage](http://www.wailian.work/images/2018/08/22/homepage.gif)
 
 ### HelloCharts for Android
 - ```implementation 'com.github.lecho:hellocharts-library:1.5.8@aar'```

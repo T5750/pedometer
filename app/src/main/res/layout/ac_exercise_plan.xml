@@ -97,6 +97,7 @@
 				android:layout_weight="1"
 				android:background="@color/white"
 				android:gravity="center_vertical|right"
+				android:inputType="number"
 				android:text="5000"
 				android:textColor="@color/lightBlack"
 				android:textSize="16sp" />
@@ -195,6 +196,7 @@
 				android:layout_weight="1"
 				android:background="@color/white"
 				android:gravity="center_vertical|right"
+				android:inputType="numberDecimal"
 				android:text="180"
 				android:textColor="@color/lightBlack"
 				android:textSize="16sp" />
@@ -227,6 +229,7 @@
 				android:layout_weight="1"
 				android:background="@color/white"
 				android:gravity="center_vertical|right"
+				android:inputType="numberDecimal"
 				android:text="60"
 				android:textColor="@color/lightBlack"
 				android:textSize="16sp" />
