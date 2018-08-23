@@ -1,0 +1,24 @@
+language: android
+
+android:
+   components:
+   - tools
+   - platform-tools
+   - build-tools-26.0.2
+   - android-26
+   - sys-img-armeabi-v7a-android-tv-l
+
+jdk: oraclejdk8
+
+sudo: required
+
+before_script:
+  - ./gradlew clean assembleDebug --no-daemon --stacktrace
+
+script:
+  - ./gradlew build
+
+notifications:
+  email: false
+  webhooks: https://www.travisbuddy.com/
+  on_success: never

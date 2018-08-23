@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/T5750/pedometer.svg?branch=master)](https://travis-ci.org/T5750/pedometer)
 [![Releases](https://img.shields.io/github/release/T5750/pedometer.svg)](https://github.com/T5750/pedometer/releases/latest)
 [![License](https://img.shields.io/badge/license-Apache-blue.svg)](https://github.com/T5750/pedometer/blob/master/LICENSE.txt)
 
