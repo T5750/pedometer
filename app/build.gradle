@@ -3,10 +3,10 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         release {
-            keyAlias 'pedometer'
-            keyPassword '123123'
-            storeFile file('D:/code/pedometer.jks')
-            storePassword '123123'
+//            keyAlias 'pedometer'
+//            keyPassword '123123'
+//            storeFile file('D:/code/pedometer.jks')
+//            storePassword '123123'
         }
     }
     compileSdkVersion LIBRARY_COMPILE_SDK_VERSION
@@ -23,7 +23,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
         }
         debug {
             // Android Debug Database
