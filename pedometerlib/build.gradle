@@ -3,10 +3,10 @@ apply plugin: 'com.android.library'
 android {
     signingConfigs {
         release {
-//            keyAlias 'pedometer'
-//            keyPassword '123123'
-//            storeFile file('D:/code/pedometer.jks')
-//            storePassword '123123'
+//            keyAlias KEY_ALIAS
+//            keyPassword KEY_PASSWORD
+//            storeFile file(STORE_FILE)
+//            storePassword STORE_PASSWORD
         }
     }
     compileSdkVersion LIBRARY_COMPILE_SDK_VERSION

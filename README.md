@@ -71,6 +71,7 @@ public class ExampleApplication extends Application {
 ## References
 - [TodayStepCounter](https://github.com/jiahongfei/TodayStepCounter) Commits on Feb 24, 2018
 - [DylanStepCount](https://github.com/linglongxin24/DylanStepCount) Commits on Nov 23, 2017
+- [FastHub](https://github.com/k0shk0sh/FastHub)
 
 ## License
 Pedometer is Open Source software released under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.html).
