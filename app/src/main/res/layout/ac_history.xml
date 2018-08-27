@@ -34,7 +34,7 @@
 			android:paddingRight="10px"
 			android:text="历史记录"
 			android:textColor="@color/white"
-			android:textSize="16sp" />
+			android:textSize="17sp" />
 
 		<ImageView
 			android:id="@+id/iv_right"

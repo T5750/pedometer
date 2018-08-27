@@ -39,7 +39,7 @@
 				android:paddingRight="10px"
 				android:text="BMI"
 				android:textColor="@color/white"
-				android:textSize="16sp" />
+				android:textSize="17sp" />
 
 			<ImageView
 				android:id="@+id/iv_right"

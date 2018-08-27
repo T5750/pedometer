@@ -19,14 +19,14 @@
 			android:layout_height="wrap_content"
 			android:layout_alignParentRight="true"
 			android:layout_alignParentTop="true"
-			android:layout_marginRight="20dp"
-			android:layout_marginTop="20dp"
+			android:layout_marginRight="10dp"
+			android:layout_marginTop="10dp"
 			android:drawableLeft="@mipmap/home_statistical"
 			android:drawablePadding="10dp"
 			android:gravity="center_vertical"
 			android:text="历史"
 			android:textColor="@color/lightBlack"
-			android:textSize="16sp" />
+			android:textSize="17sp" />
 
 		<com.evangel.pedometer.view.StepArcView
 			android:id="@+id/sav_step"
@@ -42,13 +42,13 @@
 			android:layout_height="wrap_content"
 			android:layout_above="@+id/sav_step"
 			android:layout_alignParentLeft="true"
-			android:layout_marginLeft="20dp"
+			android:layout_marginLeft="10dp"
 			android:drawableLeft="@mipmap/home_question_mark"
 			android:drawablePadding="10dp"
 			android:gravity="center_vertical"
 			android:text="设置"
 			android:textColor="@color/lightBlack"
-			android:textSize="16sp" />
+			android:textSize="17sp" />
 
 		<TextView
 			android:id="@+id/tv_step"
@@ -66,7 +66,7 @@
 			android:layout_height="wrap_content"
 			android:layout_alignParentLeft="true"
 			android:layout_below="@+id/sav_step"
-			android:layout_marginLeft="20dp"
+			android:layout_marginLeft="10dp"
 			android:gravity="center_vertical"
 			android:textColor="@color/lightBlack"
 			android:textSize="25sp" />
@@ -77,7 +77,7 @@
 			android:layout_height="wrap_content"
 			android:layout_alignParentRight="true"
 			android:layout_below="@+id/sav_step"
-			android:layout_marginRight="20dp"
+			android:layout_marginRight="10dp"
 			android:gravity="center_vertical"
 			android:textColor="@color/lightBlack"
 			android:textSize="25sp" />
@@ -88,7 +88,7 @@
 			android:layout_height="wrap_content"
 			android:layout_alignParentLeft="true"
 			android:layout_below="@+id/tv_calorie"
-			android:layout_marginLeft="20dp"
+			android:layout_marginLeft="10dp"
 			android:gravity="center_vertical"
 			android:text="里程/公里"
 			android:textColor="@color/grey"
@@ -100,7 +100,7 @@
 			android:layout_height="wrap_content"
 			android:layout_alignParentRight="true"
 			android:layout_below="@+id/tv_calorie"
-			android:layout_marginRight="20dp"
+			android:layout_marginRight="10dp"
 			android:gravity="center_vertical"
 			android:text="消耗/千卡"
 			android:textColor="@color/grey"

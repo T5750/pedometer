@@ -1,12 +1,20 @@
 apply plugin: 'com.android.application'
 
+// Create a variable called keystorePropertiesFile, and initialize it to your
+// keystore.properties file, in the rootProject folder.
+def keystorePropertiesFile = rootProject.file("debug_gradle.properties")
+// Initialize a new Properties() object called keystoreProperties.
+def buildProperties = new Properties()
+// Load your keystore.properties file into the keystoreProperties object.
+buildProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
     signingConfigs {
         release {
-//            keyAlias KEY_ALIAS
-//            keyPassword KEY_PASSWORD
-//            storeFile file(STORE_FILE)
-//            storePassword STORE_PASSWORD
+            keyAlias buildProperties['KEY_ALIAS']
+            keyPassword buildProperties['KEY_PASSWORD']
+//            storeFile file(buildProperties['STORE_FILE'])
+            storePassword buildProperties['STORE_PASSWORD']
         }
     }
     compileSdkVersion LIBRARY_COMPILE_SDK_VERSION
@@ -20,14 +28,14 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            // Android Debug Database
+            resValue("string", "PORT_NUMBER", "8081")
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //            signingConfig signingConfigs.release
-        }
-        debug {
-            // Android Debug Database
-            resValue("string", "PORT_NUMBER", "8081")
         }
     }
 }
