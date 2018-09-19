@@ -36,7 +36,7 @@ public class TodayStepService extends Service implements Handler.Callback {
 	/**
 	 * 保存数据库频率
 	 */
-	private static final int DB_SAVE_COUNTER = 30;
+	private static final int DB_SAVE_COUNTER = 10;
 	// 传感器的采样周期，这里使用SensorManager.SENSOR_DELAY_FASTEST，如果使用SENSOR_DELAY_UI会导致部分手机后台清理内存之后传感器不记步
 	private static final int SAMPLING_PERIOD_US = SensorManager.SENSOR_DELAY_FASTEST;
 	private static final int HANDLER_WHAT_SAVE_STEP = 0;
