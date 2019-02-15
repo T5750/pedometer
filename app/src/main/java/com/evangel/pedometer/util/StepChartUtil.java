@@ -108,7 +108,7 @@ public class StepChartUtil {
 	 */
 	public static ColumnChartData getColumnChartData(String stepArray) {
 		// stepArray =
-		// "[{\"sportDate\":1533856573082,\"stepNum\":100},{\"sportDate\":1533856573083,\"stepNum\":200},{\"sportDate\":1533866573083,\"stepNum\":300},{\"sportDate\":1533884436964,\"stepNum\":1350}]";
+		// "[{\"sportDate\":1533831373082,\"stepNum\":100},{\"sportDate\":1533831373083,\"stepNum\":200},{\"sportDate\":1533834973083,\"stepNum\":300},{\"sportDate\":1533866573083,\"stepNum\":400},{\"sportDate\":1533910573083,\"stepNum\":500},{\"sportDate\":1533913236964,\"stepNum\":1550}]";
 		List<Long> hourList = StepChartUtil.getHourList(stepArray, NUM_COLUMNS);
 		int numSubcolumns = 1;
 		// Column can have many subcolumns, here by default I use 1

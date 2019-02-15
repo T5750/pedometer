@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity
 	private void addListener() {
 		tv_set.setOnClickListener(this);
 		tv_data.setOnClickListener(this);
-		chart.setOnValueTouchListener(new ValueTouchListener());
+		chart.setOnValueTouchListener(new ValueTouchListener(this));
 	}
 
 	private void initData() {
