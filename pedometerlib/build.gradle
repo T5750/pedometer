@@ -22,8 +22,8 @@ android {
     defaultConfig {
         minSdkVersion LIBRARY_MIN_SDK_VERSION
         targetSdkVersion LIBRARY_TARGET_SDK_VERSION
-        versionCode 1
-        versionName "1.0"
+        versionCode LIBRARY_VERSION_CODE
+        versionName LIBRARY_VERSION_NAME
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

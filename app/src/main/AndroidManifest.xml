@@ -33,6 +33,7 @@
 			android:name=".receiver.MyReceiver"
 			android:enabled="true"
 			android:exported="true"></receiver>
+		<service android:name="com.evangel.pedometer.app.KillSelfService" />
 	</application>
 
 </manifest>
