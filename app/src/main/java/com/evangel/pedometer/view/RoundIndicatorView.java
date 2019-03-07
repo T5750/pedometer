@@ -199,11 +199,11 @@ public class RoundIndicatorView extends View {
 		canvas.save();
 		paint_5.setTextSize(dp2px(15));
 		paint_5.setAlpha(0x70);
-		String content = "BMI = 体重(kg) / 身高^2(m^2)";
+		String content = "BMI = 体重 (kg) / 身高 ^ 2 (m^2)";
 		Rect r = new Rect();
 		paint_5.getTextBounds(content, 1, content.length(), r);
 		canvas.drawText(content, -r.width() / 2, r.height() + 170, paint_5);
-		content = "正常范围为 BMI=18.5～24";
+		content = "正常范围为 BMI = 18.5 ~ 24";
 		canvas.drawText(content, -r.width() / 2, r.height() + 220, paint_5);
 		canvas.restore();
 	}
