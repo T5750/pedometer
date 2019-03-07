@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.evangel.pedometer">
 
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<application
 		android:name=".app.TSApplication"
 		android:allowBackup="true"
@@ -27,6 +28,9 @@
 			android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 		<activity
 			android:name=".activity.BmiActivity"
+			android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+		<activity
+			android:name=".activity.CopyrightActivity"
 			android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
 		<receiver

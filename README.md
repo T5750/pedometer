@@ -21,7 +21,7 @@
 - 步数仿支付宝余额数字累加效果
 - 计算BMI指数，仿支付宝芝麻信用分仪表盘
 - HelloChart绘制今日步数柱状图
-- 设置透明状态栏，Android Version >= 4.4
+- ~~设置透明状态栏，Android Version >= 4.4~~
 
 ### HelloCharts for Android
 - ```implementation 'com.github.lecho:hellocharts-library:1.5.8@aar'```

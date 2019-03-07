@@ -38,6 +38,8 @@ public class SetPlanActivity extends AppCompatActivity
 	private Button btn_bmi;
 	private EditText tv_height;
 	private EditText tv_weight;
+	private TextView tv_copyright;
+	private TextView tv_copyright_en;
 
 	private void assignViews() {
 		iv_left = findViewById(R.id.iv_left);
@@ -49,6 +51,8 @@ public class SetPlanActivity extends AppCompatActivity
 		btn_bmi = findViewById(R.id.btn_bmi);
 		tv_height = findViewById(R.id.tv_height);
 		tv_weight = findViewById(R.id.tv_weight);
+		tv_copyright = findViewById(R.id.tv_copyright);
+		tv_copyright_en = findViewById(R.id.tv_copyright_en);
 	}
 
 	@Override
@@ -109,6 +113,8 @@ public class SetPlanActivity extends AppCompatActivity
 		btn_save.setOnClickListener(this);
 		btn_bmi.setOnClickListener(this);
 		tv_remind_time.setOnClickListener(this);
+		tv_copyright.setOnClickListener(this);
+		tv_copyright_en.setOnClickListener(this);
 	}
 
 	@Override
@@ -130,6 +136,12 @@ public class SetPlanActivity extends AppCompatActivity
 			Intent intent = new Intent(this, BmiActivity.class);
 			intent.putExtra("bmi", bmi);
 			startActivity(intent);
+			break;
+		case R.id.tv_copyright:
+			startActivity(new Intent(this, CopyrightActivity.class));
+			break;
+		case R.id.tv_copyright_en:
+			startActivity(new Intent(this, CopyrightActivity.class));
 			break;
 		}
 	}
