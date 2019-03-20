@@ -48,6 +48,11 @@ public class ExampleApplication extends Application {
   }
 }
 ```
+启动Activity的shell命令
+```
+adb shell am start -n [包名]/[Activity名]
+adb shell am start -n com.evangel.pedometer/com.evangel.pedometer.activity.MainActivity
+```
 
 ### Android Debug Database
 1. ```debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'```

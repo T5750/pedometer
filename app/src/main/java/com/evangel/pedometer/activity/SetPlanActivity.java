@@ -9,6 +9,7 @@ import java.util.Locale;
 
 import com.evangel.pedometer.R;
 import com.evangel.pedometer.util.Globals;
+import com.evangel.pedometer.util.LeakUtil;
 import com.evangel.pedometer.util.SharedPreferencesUtil;
 
 import android.app.TimePickerDialog;
@@ -206,5 +207,11 @@ public class SetPlanActivity extends AppCompatActivity
 				tv_remind_time.setText(df.format(date));
 			}
 		}, hour, minute, true).show();
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		LeakUtil.clearTextLineCache();
 	}
 }
