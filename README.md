@@ -22,6 +22,7 @@
 - 计算BMI指数，仿支付宝芝麻信用分仪表盘
 - HelloChart绘制今日步数柱状图
 - ~~设置透明状态栏，Android Version >= 4.4~~
+- 备份 / 还原数据库
 
 ### HelloCharts for Android
 - ```implementation 'com.github.lecho:hellocharts-library:1.5.8@aar'```
